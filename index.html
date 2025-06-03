@@ -10,137 +10,68 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Victor+Mono:ital,wght@0,100..700;1,100..700&display=swap"
-        rel="stylesheet" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
         href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rubik+Mono+One&family=Victor+Mono:ital,wght@0,100..700;1,100..700&display=swap"
         rel="stylesheet" />
-    <style>
-        body {
-            background-color: #111125;
-            color: white;
-            /*font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-          Roboto, "Helvetica Neue", Arial, sans-serif;*/
-            font-family: Inter;
-        }
+    <link rel="stylesheet" href="css/global.css"> </head>
 
-        .cyberaware {
-            text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
-            font-family: "Rubik Mono One";
-            font-size: 32px;
-            font-style: normal;
-            font-weight: 400;
-            line-height: normal;
-            background: linear-gradient(90deg,
-                    #5a4fcf 10%,
-                    #5a4fcf 29.62%,
-                    #aba4f5 59.25%);
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .mobile-menu {
-            display: none;
-        }
-
-        .mobile-menu.active {
-            display: block;
-        }
-
-        @media (max-width: 640px) {
-            .text-xs-center {
-                text-align: center;
-            }
-
-            .cyberaware {
-                font-size: 18px;
-            }
-        }
-
-        .bg-cyber-dark {
-            background-color: #1a1a2e;
-        }
-
-        .bg-cyber-card {
-            background-color: #2d2d44;
-        }
-    </style>
-</head>
-
-<body class="bg-cyber-dark text-white overflow-x-hidden">
-    <header class="fixed top-0 left-0 right-0 z-50 bg-cyber-dark/95 backdrop-blur-sm">
-        <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold text-indigo-400 cyberaware md:text-sm">CYBERAWARE</a>
+<body class="has-fixed-header"> <header class="fixed top-0 left-0 right-0 z-50 bg-cyber-nav/95 backdrop-blur-sm">
+        <nav class="container mx-auto px-4 lg:px-6 py-4 flex justify-between items-center">
+            <a href="#hero" class="cyberaware">CYBERAWARE</a>
 
             <div class="hidden lg:flex items-center space-x-8">
-                <a href="#" class="text-white hover:text-violet-300 transition-colors">Beranda</a>
-                <a href="#" class="text-white hover:text-violet-300 transition-colors">Tentang Kami</a>
-                <a href="#" class="text-white hover:text-violet-300 transition-colors">Layanan</a>
-                <a href="#" class="text-white hover:text-violet-300 transition-colors">Kontak</a>
-            </div>
+                <a href="#hero" class="text-white hover:text-violet-300 transition-colors">Beranda</a>
+                <a href="#fitur-kami" class="text-white hover:text-violet-300 transition-colors">Layanan</a>
+                <a href="#visi-misi" class="text-white hover:text-violet-300 transition-colors">Tentang Kami</a>
+                <a href="kontak/contactPage.html" class="text-white hover:text-violet-300 transition-colors">Kontak</a> </div>
 
-            <div class="hidden lg:flex items-center space-x-4">
-                <a href="#" class="px-4 py-2 rounded text-white hover:text-violet-300 transition-colors">Login</a>
-                <a href="#"
-                    class="px-4 py-2 bg-violet-600 text-white rounded-md flex items-center space-x-1 hover:bg-violet-700 transition-colors">
-                    <span class="font-medium">Sign up</span>
-                    <i class="fas fa-chevron-right text-xs"></i>
-                </a>
-            </div>
+            <div class="hidden lg:flex items-center space-x-4" id="nav-auth-links">
+                </div>
 
             <button class="lg:hidden text-white focus:outline-none" id="menu-toggle">
                 <i class="fas fa-bars text-xl"></i>
             </button>
         </nav>
 
-        <div class="mobile-menu lg:hidden bg-[#1d1d35] border-t border-gray-800/50 shadow-xl" id="mobile-menu">
+        <div class="hidden lg:hidden bg-cyber-mobile-menu border-t border-gray-800/50 shadow-xl" id="mobile-menu">
             <div class="container mx-auto">
                 <div class="py-4 px-4 space-y-6">
                     <div class="grid grid-cols-1 gap-2">
-                        <a href="#"
-                            class="text-white py-3 px-4 rounded hover:bg-[#2a2a40] transition-colors flex items-center">
+                        <a href="#hero"
+                            class="text-white py-3 px-4 rounded hover-bg-cyber-mobile-item transition-colors flex items-center">
                             <i class="fas fa-home mr-3 w-5 text-center"></i>
                             <span>Beranda</span>
                         </a>
-                        <a href="#"
-                            class="text-white py-3 px-4 rounded hover:bg-[#2a2a40] transition-colors flex items-center">
-                            <i class="fas fa-info-circle mr-3 w-5 text-center"></i>
-                            <span>Tentang Kami</span>
+                        <a href="#tahukah-anda"
+                            class="text-white py-3 px-4 rounded hover-bg-cyber-mobile-item transition-colors flex items-center">
+                            <i class="fas fa-chart-bar mr-3 w-5 text-center"></i>
+                            <span>Statistik</span>
                         </a>
-                        <a href="#"
-                            class="text-white py-3 px-4 rounded hover:bg-[#2a2a40] transition-colors flex items-center">
+                        <a href="#fitur-kami"
+                            class="text-white py-3 px-4 rounded hover-bg-cyber-mobile-item transition-colors flex items-center">
                             <i class="fas fa-cogs mr-3 w-5 text-center"></i>
                             <span>Layanan</span>
                         </a>
-                        <a href="#"
-                            class="text-white py-3 px-4 rounded hover:bg-[#2a2a40] transition-colors flex items-center">
-                            <i class="fas fa-envelope mr-3 w-5 text-center"></i>
-                            <span>Kontak</span>
+                        <a href="#visi-misi"
+                            class="text-white py-3 px-4 rounded hover-bg-cyber-mobile-item transition-colors flex items-center">
+                            <i class="fas fa-info-circle mr-3 w-5 text-center"></i>
+                            <span>Tentang Kami</span>
                         </a>
+                        <a href="kontak/contactPage.html"
+                            class="text-white py-3 px-4 rounded hover-bg-cyber-mobile-item transition-colors flex items-center">
+                            <i class="fas fa-envelope mr-3 w-5 text-center"></i>
+                            <span>Kontak</span>  </a>
                     </div>
 
-                    <div
-                        class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-3 pt-4 border-t border-gray-700">
-                        <a href="#"
-                            class="px-4 py-3 border border-gray-600 rounded-md text-center hover:bg-white/10 transition-colors flex-1">
-                            Login
-                        </a>
-                        <a href="#"
-                            class="px-4 py-3 bg-violet-600 text-white rounded-md text-center font-semibold hover:bg-violet-700 transition-colors flex-1">
-                            Sign up
-                        </a>
-                    </div>
+                    <div id="mobile-auth-links" class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-3 pt-4 border-t border-gray-700">
+                         </div>
                 </div>
             </div>
         </div>
     </header>
 
     <main>
-        <section class="pt-20 pb-12 md:pt-32 md:pb-24 px-4 container mx-auto">
-            <div class="flex flex-col md:items-center md:text-center max-w-4xl mx-auto items-start text-left">
+        <section id="hero" class="pt-20 pb-12 md:pt-32 md:pb-24 px-4 container mx-auto">
+            <div class="flex flex-col md:items-center md:text-center max-w-4xl mx-auto items-start text-left reveal-on-scroll">
                 <span class="text-indigo-400 font-semibold uppercase tracking-widest mb-4 text-sm">Hi Cyberian !</span>
                 <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tighter mb-6">
                     Lindungi Dirimu di Dunia Digital
@@ -150,88 +81,72 @@
                     sebagai upaya menangani kejahatan digital
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
-                    <a href="#"
-                        class="px-6 py-3 bg-violet-600 text-white rounded-md flex items-center justify-center space-x-2 hover:bg-violet-700 transition-colors font-medium w-full sm:w-auto">
+                    <a href="detector/detectorPage.html" class="px-6 py-3 bg-violet-600 text-white rounded-md flex items-center justify-center space-x-2 hover:bg-violet-700 transition-colors font-medium w-full sm:w-auto">
                         <span>Ajukan Pengaduan</span>
                         <i class="fas fa-chevron-right text-xs"></i>
                     </a>
-                    <a href="#"
+                    <a href="#fitur-kami"
                         class="px-6 py-3 border border-white rounded-md hover:bg-white/10 transition-colors font-medium w-full sm:w-auto text-center">Pelajari
                         Selengkapnya</a>
                 </div>
             </div>
             <div
-                class="mt-12 bg-indigo-100/30 rounded-lg h-48 sm:h-64 md:h-80 mx-auto max-w-6xl flex items-center justify-center overflow-hidden">
-                <img src="/resource/cyber-security-concept-digital-art.jpg" alt="Hero Image"
-                    class="w-full h-full object-cover" />
-            </div>
+                class="mt-12 bg-indigo-900/30 rounded-lg h-48 sm:h-64 md:h-80 mx-auto max-w-6xl flex items-center justify-center overflow-hidden reveal-on-scroll"> <img src="resource/cyber-security-concept-digital-art.jpg" alt="Hero Image"
+                    class="w-full h-full object-cover" /> </div>
         </section>
 
-        <section class="py-2 md:py-2 px-4 container mx-auto">
-            <div class="max-w-4xl mx-auto md:items-center md:text-center mb-12 items-start text-left">
+        <section id="tahukah-anda" class="py-12 md:py-16 px-4 container mx-auto">
+            <div class="max-w-4xl mx-auto md:items-center md:text-center mb-12 items-start text-left reveal-on-scroll">
                 <span class="text-indigo-400 font-semibold uppercase tracking-widest mb-4 block text-sm">Tahukah
                     Anda?</span>
                 <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight tracking-tighter mb-6">
-                    Lebih Dari 500 Ribu Kasus Serangan Cyber Terjadi Setiap Tahunnya
+                    Lebih Dari <span class="number-counter text-indigo-300" data-target="500000">0</span> Kasus Serangan Cyber Terjadi Setiap Tahunnya
                 </h2>
                 <p class="text-slate-100 text-base sm:text-lg">
-                    Lebih dari 29 juta serangan siber diblokir di Indonesia selama 2023,
-                    meningkat 6 kali lipat pada 2024. Penipuan online naik 22,2% dan
-                    pencurian data pribadi meningkat sebesar 13,01%. Waktunya bertindak.
-                </p>
+                    Lebih dari <span class="number-counter" data-target="29000000">0</span> serangan siber diblokir di Indonesia selama 2023,
+                    meningkat 6 kali lipat pada 2024. Penipuan online naik <span class="number-counter" data-target="22">0</span>,<span class="number-counter" data-target="2" data-decimal="true">0</span>% dan
+                    pencurian data pribadi meningkat sebesar <span class="number-counter" data-target="13">0</span>,<span class="number-counter" data-target="1" data-decimal="true">0</span>%. Waktunya bertindak. </p>
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
                 <div class="space-y-4 md:space-y-6">
-                    <div
-                        class="bg-cyber-card rounded-xl p-4 sm:p-6 flex flex-col sm:flex-row items-start gap-4 sm:gap-6">
-                        <div
-                            class="bg-indigo-100/30 rounded-lg p-4 sm:p-6 h-16 w-16 sm:h-24 sm:w-24 flex items-center justify-center shrink-0 mx-auto sm:mx-0">
-                            <i class="fas fa-shield-alt text-violet-300 text-xl sm:text-3xl"></i>
+                    <div class="bg-cyber-card rounded-xl p-4 sm:p-6 flex flex-col sm:flex-row items-start gap-4 sm:gap-6 reveal-on-scroll">
+                        <div class="bg-indigo-900/30 rounded-lg p-4 sm:p-6 h-16 w-16 sm:h-24 sm:w-24 flex items-center justify-center shrink-0 mx-auto sm:mx-0"> <i class="fas fa-shield-alt text-violet-300 text-xl sm:text-3xl"></i>
                         </div>
                         <div class="w-full sm:w-auto">
                             <h3 class="text-xl font-semibold mb-2 text-xs-center sm:text-left">
                                 Penipuan Online Meningkat
                             </h3>
                             <p class="text-sm text-slate-100 mb-4 text-xs-center sm:text-left">
-                                32,5% kasus kejahatan siber adalah penipuan online, meningkat
+                                <span class="number-counter font-bold" data-target="32">0</span>,<span class="font-bold number-counter" data-target="5" data-decimal="true">0</span>% kasus kejahatan siber adalah penipuan online, meningkat
                                 drastis dari 10,3% tahun sebelumnya.
                             </p>
-                            <a href="#"
-                                class="flex items-center text-indigo-400 hover:text-indigo-300 transition-colors justify-center sm:justify-start">
+                            <a href="#" class="flex items-center text-indigo-400 hover:text-indigo-300 transition-colors justify-center sm:justify-start">
                                 <span>Baca Selengkapnya</span>
                                 <i class="fas fa-chevron-right text-xs ml-2"></i>
                             </a>
                         </div>
                     </div>
 
-                    <div
-                        class="bg-cyber-card rounded-xl p-4 sm:p-6 flex flex-col sm:flex-row items-start gap-4 sm:gap-6">
-                        <div
-                            class="bg-indigo-100/30 rounded-lg p-4 sm:p-6 h-16 w-16 sm:h-24 sm:w-24 flex items-center justify-center shrink-0 mx-auto sm:mx-0">
-                            <i class="fas fa-lock text-violet-300 text-xl sm:text-3xl"></i>
+                     <div class="bg-cyber-card rounded-xl p-4 sm:p-6 flex flex-col sm:flex-row items-start gap-4 sm:gap-6 reveal-on-scroll">
+                        <div class="bg-indigo-900/30 rounded-lg p-4 sm:p-6 h-16 w-16 sm:h-24 sm:w-24 flex items-center justify-center shrink-0 mx-auto sm:mx-0"> <i class="fas fa-lock text-violet-300 text-xl sm:text-3xl"></i>
                         </div>
                         <div class="w-full sm:w-auto">
                             <h3 class="text-xl font-semibold mb-2 text-xs-center sm:text-left">
                                 Peretasan Data Pribadi
                             </h3>
                             <p class="text-sm text-slate-100 mb-4 text-xs-center sm:text-left">
-                                Pencurian data pribadi meningkat 13,01% dengan target utama
-                                akun media sosial dan informasi keuangan.
+                                Pencurian data pribadi meningkat <span class="font-bold number-counter" data-target="13">0</span>,<span class="font-bold number-counter" data-target="1" data-decimal="true">0</span>% dengan target utama akun media sosial dan informasi keuangan.
                             </p>
-                            <a href="#"
-                                class="flex items-center text-indigo-400 hover:text-indigo-300 transition-colors justify-center sm:justify-start">
+                            <a href="#" class="flex items-center text-indigo-400 hover:text-indigo-300 transition-colors justify-center sm:justify-start">
                                 <span>Baca Selengkapnya</span>
                                 <i class="fas fa-chevron-right text-xs ml-2"></i>
                             </a>
                         </div>
                     </div>
 
-                    <div
-                        class="bg-cyber-card rounded-xl p-4 sm:p-6 flex flex-col sm:flex-row items-start gap-4 sm:gap-6">
-                        <div
-                            class="bg-indigo-100/30 rounded-lg p-4 sm:p-6 h-16 w-16 sm:h-24 sm:w-24 flex items-center justify-center shrink-0 mx-auto sm:mx-0">
-                            <i class="fas fa-virus-slash text-violet-300 text-xl sm:text-3xl"></i>
+                    <div class="bg-cyber-card rounded-xl p-4 sm:p-6 flex flex-col sm:flex-row items-start gap-4 sm:gap-6 reveal-on-scroll">
+                        <div class="bg-indigo-900/30 rounded-lg p-4 sm:p-6 h-16 w-16 sm:h-24 sm:w-24 flex items-center justify-center shrink-0 mx-auto sm:mx-0"> <i class="fas fa-virus-slash text-violet-300 text-xl sm:text-3xl"></i>
                         </div>
                         <div class="w-full sm:w-auto">
                             <h3 class="text-xl font-semibold mb-2 text-xs-center sm:text-left">
@@ -241,26 +156,41 @@
                                 Serangan ransomware dan malware semakin canggih dengan
                                 kemampuan enkripsi data dan pemerasan digital.
                             </p>
-                            <a href="#"
-                                class="flex items-center text-indigo-400 hover:text-indigo-300 transition-colors justify-center sm:justify-start">
+                            <a href="#" class="flex items-center text-indigo-400 hover:text-indigo-300 transition-colors justify-center sm:justify-start">
                                 <span>Baca Selengkapnya</span>
                                 <i class="fas fa-chevron-right text-xs ml-2"></i>
                             </a>
                         </div>
                     </div>
                 </div>
-
-                <div class="bg-indigo-100/30 rounded-xl h-full min-h-[300px] flex items-center justify-center">
-                    Data Statistik
+                
+                <div class="bg-cyber-card rounded-xl h-full min-h-[300px] flex flex-col items-center justify-center p-6 reveal-on-scroll">
+                    <h3 class="text-2xl font-bold mb-6 text-indigo-300">Peningkatan Ancaman Siber</h3>
+                    <div class="grid grid-cols-1 gap-y-8 text-center w-full max-w-xs">
+                        <div>
+                            <p class="text-slate-300 mb-1">Serangan Diblokir (2023)</p>
+                            <span class="number-counter text-4xl font-bold text-violet-400" data-target="29000000">0</span>
+                        </div>
+                        <div>
+                            <p class="text-slate-300 mb-1">Kenaikan Penipuan Online</p>
+                            <div>
+                                <span class="number-counter text-4xl font-bold text-violet-400" data-target="22">0</span><span class="text-4xl font-bold text-violet-400">.<span class="number-counter" data-target="2" data-decimal="true">0</span>%</span>
+                            </div>
+                        </div>
+                        <div>
+                            <p class="text-slate-300 mb-1">Peningkatan Pencurian Data</p>
+                             <div>
+                                <span class="number-counter text-4xl font-bold text-violet-400" data-target="13">0</span><span class="text-4xl font-bold text-violet-400">.<span class="number-counter" data-target="1" data-decimal="true">0</span>%</span> </div>
+                        </div>
+                    </div>
+                    <p class="text-xs text-slate-400 mt-6">Data berdasarkan laporan terkini.</p>
                 </div>
             </div>
         </section>
 
-        <!-- Visi Misi -->
-        <section class="py-8 md:py-12 md:px-10 px-4 bg-[#161626] container mx-auto md:rounded-xl my-12 md:mt-16">
+        <section id="visi-misi" class="py-8 md:py-12 md:px-10 px-4 container mx-auto md:rounded-xl my-12 md:mt-16 reveal-on-scroll">
             <div class="mb-12">
-                <span class="text-indigo-400 font-semibold uppercase tracking-widest mb-4 block text-sm">Komitmen Kami
-                    Melindungi Masyarakat</span>
+                <span class="text-indigo-400 font-semibold uppercase tracking-widest mb-4 block text-sm">Komitmen Kami Melindungi Masyarakat</span>
                 <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight tracking-tighter mb-6">
                     Visi dan Misi CyberAware
                 </h2>
@@ -270,7 +200,7 @@
                 </p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-                <div class="bg-cyber-card rounded-xl p-6 md:p-8 lg:p-12">
+                <div class="bg-cyber-card rounded-xl p-6 md:p-8 lg:p-12 reveal-on-scroll">
                     <h3 class="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-6 leading-tight">
                         Visi
                     </h3>
@@ -283,49 +213,34 @@
                     </div>
                 </div>
 
-                <div class="bg-cyber-card rounded-xl p-6 md:p-8 lg:p-12">
+                <div class="bg-cyber-card rounded-xl p-6 md:p-8 lg:p-12 reveal-on-scroll">
                     <h3 class="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-6 leading-tight">
                         Misi
                     </h3>
-
                     <div class="space-y-4 mb-8">
                         <div class="flex items-center gap-4">
-                            <div
-                                class="bg-indigo-100/30 rounded-full w-6 h-6 flex items-center justify-center shrink-0">
-                                <i class="fas fa-check text-indigo-400 text-xs"></i>
+                            <div class="bg-indigo-900/30 rounded-full w-6 h-6 flex items-center justify-center shrink-0"> <i class="fas fa-check text-indigo-400 text-xs"></i>
                             </div>
-                            <p class="text-slate-100 font-medium text-sm sm:text-base">
-                                Meningkatkan Literasi Siber
-                            </p>
+                            <p class="text-slate-100 font-medium text-sm sm:text-base">Meningkatkan Literasi Siber</p>
                         </div>
                         <div class="flex items-center gap-4">
-                            <div
-                                class="bg-indigo-100/30 rounded-full w-6 h-6 flex items-center justify-center shrink-0">
-                                <i class="fas fa-check text-indigo-400 text-xs"></i>
+                            <div class="bg-indigo-900/30 rounded-full w-6 h-6 flex items-center justify-center shrink-0"> <i class="fas fa-check text-indigo-400 text-xs"></i>
                             </div>
-                            <p class="text-slate-100 font-medium text-sm sm:text-base">
-                                Mendorong Perilaku Aman di Dunia Maya
-                            </p>
+                            <p class="text-slate-100 font-medium text-sm sm:text-base">Mendorong Perilaku Aman di Dunia Maya</p>
                         </div>
                         <div class="flex items-center gap-4">
-                            <div
-                                class="bg-indigo-100/30 rounded-full w-6 h-6 flex items-center justify-center shrink-0">
-                                <i class="fas fa-check text-indigo-400 text-xs"></i>
+                            <div class="bg-indigo-900/30 rounded-full w-6 h-6 flex items-center justify-center shrink-0"> <i class="fas fa-check text-indigo-400 text-xs"></i>
                             </div>
-                            <p class="text-slate-100 font-medium text-sm sm:text-base">
-                                Menjadi Mitra Strategis dalam Edukasi Keamanan Digital Nasional
-                            </p>
+                            <p class="text-slate-100 font-medium text-sm sm:text-base">Menjadi Mitra Strategis dalam Edukasi Keamanan Digital Nasional</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Fitur Utama -->
-        <section class="py-8 md:py-12 px-4 md:px-10 bg-[#12121f] container mx-auto md:rounded-xl mb-12 my-12 md:mt-16">
+        <section id="fitur-kami" class="py-8 md:py-12 px-4 md:px-10 container mx-auto md:rounded-xl mb-12 my-12 md:mt-16 reveal-on-scroll">
             <div class="mb-7">
-                <span class="text-indigo-400 font-semibold uppercase tracking-widest mb-4 block text-sm">Fitur
-                    Kami</span>
+                <span class="text-indigo-400 font-semibold uppercase tracking-widest mb-4 block text-sm">Fitur Kami</span>
                 <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight tracking-tighter mb-4">
                     Gunakan 3 Fitur Utama Kami Untuk Membantu Anda
                 </h2>
@@ -337,68 +252,46 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="bg-cyber-card rounded-xl p-6 flex flex-col h-full">
+                <div class="bg-cyber-card rounded-xl p-6 flex flex-col h-full reveal-on-scroll">
                     <div class="flex flex-col items-center sm:items-start gap-6 mb-6">
-                        <div
-                            class="bg-indigo-100/30 rounded-xl p-6 h-20 w-20 flex items-center justify-center shrink-0">
-                            <i class="fas fa-file-alt text-indigo-400 text-2xl"></i>
+                        <div class="bg-indigo-900/30 rounded-xl p-6 h-20 w-20 flex items-center justify-center shrink-0"> <i class="fas fa-file-alt text-indigo-400 text-2xl"></i>
                         </div>
                         <div class="text-center sm:text-left">
-                            <h3 class="text-xl font-semibold mb-2">
-                                Pengaduan dengan Link, File dan Narasi
-                            </h3>
-                            <p class="text-sm text-slate-100">
-                                Anda bisa mengaduin dengan ashdjkahsjdhs ajkhdkjashdjk
-                                sahdjkahsdkjhasjkd haskjhdjkashdjkashd.
-                            </p>
+                            <h3 class="text-xl font-semibold mb-2">Pengaduan Lengkap</h3>
+                            <p class="text-sm text-slate-100">Laporkan insiden siber dengan mudah melalui link, file, dan narasi detail untuk investigasi menyeluruh.</p>
                         </div>
                     </div>
-                    <a href="#"
-                        class="flex items-center text-indigo-400 mt-auto hover:text-indigo-300 transition-colors justify-center sm:justify-start">
+                    <a href="detector/detectorPage.html" class="flex items-center text-indigo-400 mt-auto hover:text-indigo-300 transition-colors justify-center sm:justify-start">
                         <span>Pelajari Selengkapnya</span>
                         <i class="fas fa-chevron-right text-xs ml-2"></i>
                     </a>
                 </div>
 
-                <div class="bg-cyber-card rounded-xl p-6 flex flex-col h-full">
+                <div class="bg-cyber-card rounded-xl p-6 flex flex-col h-full reveal-on-scroll">
                     <div class="flex flex-col items-center sm:items-start gap-6 mb-6">
-                        <div
-                            class="bg-indigo-100/30 rounded-xl p-6 h-20 w-20 flex items-center justify-center shrink-0">
-                            <i class="fas fa-chart-line text-indigo-400 text-2xl"></i>
+                        <div class="bg-indigo-900/30 rounded-xl p-6 h-20 w-20 flex items-center justify-center shrink-0"> <i class="fas fa-chart-line text-indigo-400 text-2xl"></i>
                         </div>
                         <div class="text-center sm:text-left">
                             <h3 class="text-xl font-semibold mb-2">Analisis Laporan</h3>
-                            <p class="text-sm text-slate-100">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                Suspeno varius elementum tristique. Duis cursus.
-                            </p>
+                            <p class="text-sm text-slate-100">Dapatkan analisis mendalam dari setiap laporan yang masuk untuk memahami pola dan sumber ancaman.</p>
                         </div>
                     </div>
-                    <a href="#"
-                        class="flex items-center text-indigo-400 mt-auto hover:text-indigo-300 transition-colors justify-center sm:justify-start">
+                    <a href="analisis/analisisPage.html" class="flex items-center text-indigo-400 mt-auto hover:text-indigo-300 transition-colors justify-center sm:justify-start">
                         <span>Pelajari Selengkapnya</span>
                         <i class="fas fa-chevron-right text-xs ml-2"></i>
                     </a>
                 </div>
 
-                <div class="bg-cyber-card rounded-xl p-6 flex flex-col h-full">
+                <div class="bg-cyber-card rounded-xl p-6 flex flex-col h-full reveal-on-scroll">
                     <div class="flex flex-col items-center sm:items-start gap-6 mb-6">
-                        <div
-                            class="bg-indigo-100/30 rounded-xl p-6 h-20 w-20 flex items-center justify-center shrink-0">
-                            <i class="fas fa-book text-indigo-400 text-2xl"></i>
+                        <div class="bg-indigo-900/30 rounded-xl p-6 h-20 w-20 flex items-center justify-center shrink-0"> <i class="fas fa-book text-indigo-400 text-2xl"></i>
                         </div>
                         <div class="text-center sm:text-left">
-                            <h3 class="text-xl font-semibold mb-2">
-                                Literasi Keamanan Cyber
-                            </h3>
-                            <p class="text-sm text-slate-100">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                Suspeno varius elementum tristique. Duis cursus.
-                            </p>
+                            <h3 class="text-xl font-semibold mb-2">Literasi Keamanan Cyber</h3>
+                            <p class="text-sm text-slate-100">Tingkatkan pengetahuan Anda tentang keamanan siber melalui artikel, tips, dan panduan praktis.</p>
                         </div>
                     </div>
-                    <a href="#"
-                        class="flex items-center text-indigo-400 mt-auto hover:text-indigo-300 transition-colors justify-center sm:justify-start">
+                    <a href="list-berita.html" class="flex items-center text-indigo-400 mt-auto hover:text-indigo-300 transition-colors justify-center sm:justify-start">
                         <span>Pelajari Selengkapnya</span>
                         <i class="fas fa-chevron-right text-xs ml-2"></i>
                     </a>
@@ -406,164 +299,101 @@
             </div>
         </section>
 
-        <!-- Analis -->
-        <section class="container mx-auto my-12 mb-24 md:mb-36">
-            <div class="bg-cyber-card md:rounded-xl p-6 md:p-8 lg:p-12">
-                <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
-                    <div class="lg:col-span-1">
-                        <span class="text-indigo-400 font-semibold uppercase tracking-widest mb-4 block text-sm">Analis
-                            Kami</span>
-                        <h2 class="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-6 leading-tight">
+        <section id="analis-kami" class="container mx-auto my-12 mb-24 md:mb-36 px-4 reveal-on-scroll"> <div class="bg-cyber-card md:rounded-xl p-6 md:p-8 lg:p-12">
+                <div class="grid grid-cols-1 lg:grid-cols-4 gap-8 items-center">
+                    <div class="lg:col-span-1 reveal-on-scroll slide-left">
+                        <span class="text-indigo-400 font-semibold uppercase tracking-widest mb-4 block text-sm">Analis Kami</span>
+                        <h2 class="text-xl sm:text-2xl md:text-3xl font-bold mb-6 leading-tight">
                             Analis Kami Sudah Terpercaya dan Tersertifikasi
                         </h2>
                         <p class="text-slate-100 mb-8 text-sm sm:text-base">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            Suspendisse varius elementum tristique.
+                            Tim analis kami terdiri dari para profesional berpengalaman yang siap membantu Anda.
                         </p>
-                        <div class="hidden lg:flex items-center gap-4 mt-8 justify-start">
-                            <button
-                                class="bg-indigo-100/20 hover:bg-indigo-100/30 w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center">
-                                <i class="fas fa-chevron-left text-white"></i>
-                            </button>
-                            <button
-                                class="bg-indigo-500 hover:bg-indigo-600 w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center">
-                                <i class="fas fa-chevron-right text-white"></i>
-                            </button>
-                        </div>
-
                     </div>
-
-                    <div class="lg:col-span-3 grid grid-cols-1 sm:grid-cols-3 gap-6">
-                        <div class="relative rounded-xl bg-indigo-100/20 h-64 sm:h-80 flex items-center justify-center">
-                            <img src="/resource/ellaKesayanga.jpg" alt="Testimonial" class="w-full h-full object-cover object-top rounded-xl" />
-                            <div class="absolute bottom-4 right-4 bg-cyber-card rounded-xl p-4 w-5/6">
-                                <div class="flex items-start gap-4">
-                                    <div>
-                                        <h4 class="font-semibold text-sm">John Doe <p class="text-slate-200 text-sm">CEO, XYZ Corp</p></h4>
-                                    </div>
+                    
+                    <div class="lg:col-span-3 reveal-on-scroll slide-right">
+                        <div id="testimonial-carousel" class="relative min-h-[320px] sm:min-h-[360px] md:min-h-[380px]"> 
+                            <div class="testimonial-slide absolute w-full h-full opacity-0">
+                                <div class="relative rounded-xl bg-indigo-900/30 h-full flex flex-col items-center justify-center text-center p-6">
+                                    <img src="resource/ellaKesayanga.jpg" alt="Analis 1" class="w-24 h-24 rounded-full object-cover object-top mb-4 border-2 border-indigo-400" /> <h4 class="font-semibold text-lg text-white">Aelita Schaeffer</h4>
+                                    <p class="text-indigo-300 text-sm mb-3">Spesialis Keamanan Jaringan</p>
+                                    <p class="text-slate-200 text-xs italic max-w-md">"CyberAware telah menjadi platform vital dalam upaya kami memerangi kejahatan siber. Fitur pelaporannya sangat intuitif."</p>
+                                </div>
+                            </div>
+                            <div class="testimonial-slide absolute w-full h-full opacity-0">
+                                 <div class="relative rounded-xl bg-indigo-900/30 h-full flex flex-col items-center justify-center text-center p-6">
+                                    <img src="resource/ellaKesayanga.jpg" alt="Analis 2" class="w-24 h-24 rounded-full object-cover object-top mb-4 border-2 border-indigo-400" /> <h4 class="font-semibold text-lg text-white">Jeremy Belpois</h4>
+                                    <p class="text-indigo-300 text-sm mb-3">Analis Malware Senior</p>
+                                    <p class="text-slate-200 text-xs italic max-w-md">"Dengan analitik canggih dari CyberAware, kami dapat mengidentifikasi ancaman lebih cepat dan melindungi pengguna lebih efektif."</p>
+                                </div>
+                            </div>
+                            <div class="testimonial-slide absolute w-full h-full opacity-0">
+                                 <div class="relative rounded-xl bg-indigo-900/30 h-full flex flex-col items-center justify-center text-center p-6">
+                                    <img src="resource/ellaKesayanga.jpg" alt="Analis 3" class="w-24 h-24 rounded-full object-cover object-top mb-4 border-2 border-indigo-400" /> <h4 class="font-semibold text-lg text-white">Odd Della Robbia</h4>
+                                    <p class="text-indigo-300 text-sm mb-3">Pakar Forensik Digital</p>
+                                    <p class="text-slate-200 text-xs italic max-w-md">"Platform ini sangat membantu dalam mengumpulkan bukti digital dan memberikan edukasi yang sangat dibutuhkan masyarakat."</p>
                                 </div>
                             </div>
                         </div>
-
-                        <div class="relative rounded-xl bg-indigo-100/20 h-64 sm:h-80 flex items-center justify-center">
-                            <img src="/resource/ellaKesayanga.jpg" alt="Testimonial" class="w-full h-full object-cover object-top rounded-xl" />
-                            <div class="absolute bottom-4 right-4 bg-cyber-card rounded-xl p-4 w-5/6">
-                                <div class="flex items-start gap-4">
-                                    <div>
-                                        <h4 class="font-semibold text-sm">John Doe <p class="text-slate-200 text-sm">CEO, XYZ Corp</p></h4>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="relative rounded-xl bg-indigo-100/20 h-64 sm:h-80 flex items-center justify-center">
-                            <img src="/resource/ellaKesayanga.jpg" alt="Testimonial" class="w-full h-full object-cover object-top rounded-xl" />
-                            <div class="absolute bottom-4 right-4 bg-cyber-card rounded-xl p-4 w-5/6">
-                                <div class="flex items-start gap-4">
-                                    <div>
-                                        <h4 class="font-semibold text-sm">John Doe <p class="text-slate-200 text-sm">CEO, XYZ Corp</p></h4>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-
-                        <div class="flex lg:hidden items-center justify-center gap-4 mt-8">
-                            <button
-                                class="bg-indigo-100/20 hover:bg-indigo-100/30 w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center">
+                        <div class="flex items-center gap-4 mt-6 justify-center">
+                            <button id="testimonial-prev" class="bg-indigo-100/20 hover:bg-indigo-100/30 w-10 h-10 rounded-full flex items-center justify-center transition-colors">
                                 <i class="fas fa-chevron-left text-white"></i>
                             </button>
-                            <button
-                                class="bg-indigo-500 hover:bg-indigo-600 w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center">
+                            <button id="testimonial-next" class="bg-violet-500 hover:bg-violet-600 w-10 h-10 rounded-full flex items-center justify-center transition-colors">
                                 <i class="fas fa-chevron-right text-white"></i>
                             </button>
                         </div>
-
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
-
-    <footer class="bg-cyber-card py-12 md:px-16 px-7 rounded">
-        <div class="container mx-auto">
+    <footer class="bg-cyber-card py-12 md:px-16 px-7 rounded"> <div class="container mx-auto">
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10 mb-12">
-                <div class="lg:col-span-2 text-left ">
-                    <h2 class="text-2xl font-bold text-indigo-400 cyberaware md:text-sm mb-2">
-                        CYBERAWARE 
-                    </h2>
-                    
-                    <h3 class="text-lg font-semibold text-slate-100 mb-4">
-                        Lindungi Dirimu di Dunia Digital
-                    </h3>
-                    <p class="text-slate-100 text-sm max-w-md">
-                        We are dedicated to delivering innovative solutions that empower
-                        businesses to thrive in an ever-changing world.
-                    </p>
+                <div class="lg:col-span-2 text-left reveal-on-scroll">
+                    <a href="#hero" class="text-2xl font-bold text-indigo-400 cyberaware md:text-lg mb-2 inline-block">CYBERAWARE</a>
+                    <h3 class="text-lg font-semibold text-slate-100 mb-4">Lindungi Dirimu di Dunia Digital</h3>
+                    <p class="text-slate-100 text-sm max-w-md">Dedicated to delivering innovative solutions that empower everyone to thrive safely in an ever-changing digital world.</p>
                 </div>
 
-                <div>
-                    <h4 class="font-semibold uppercase tracking-widest text-sm mb-4 text-left text-indigo-300">
-                        Quick Links
-                    </h4>
+                <div class="reveal-on-scroll">
+                    <h4 class="font-semibold uppercase tracking-widest text-sm mb-4 text-left text-indigo-300">Quick Links</h4>
                     <ul class="space-y-2 text-slate-500 text-sm text-left">
-                        <li><a href="#" class="hover:text-white transition-colors">Home</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">About us</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Services</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Features</a></li>
+                        <li><a href="#hero" class="hover:text-white transition-colors">Home</a></li>
+                        <li><a href="#visi-misi" class="hover:text-white transition-colors">About us</a></li>
+                        <li><a href="#fitur-kami" class="hover:text-white transition-colors">Services</a></li>
+                        <li><a href="#tahukah-anda" class="hover:text-white transition-colors">Statistics</a></li>
                     </ul>
                 </div>
-                <div>
-                    <h4 class="font-semibold uppercase tracking-widest text-sm mb-4 text-left text-indigo-300">
-                        Explore
-                    </h4>
+                <div class="reveal-on-scroll">
+                    <h4 class="font-semibold uppercase tracking-widest text-sm mb-4 text-left text-indigo-300">Explore</h4>
                     <ul class="space-y-2 text-slate-500 text-sm text-left">
                         <li><a href="#" class="hover:text-white transition-colors">Our Story</a></li>
                         <li><a href="#" class="hover:text-white transition-colors">Meet the Team</a></li>
                         <li><a href="#" class="hover:text-white transition-colors">Careers</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Press & Media</a></li>
-                    </ul>
+                        <li><a href="kontak/contactPage.html" class="hover:text-white transition-colors">Contact Us</a></li> </ul>
                 </div>
-                <div>
-                    <h4 class="font-semibold uppercase tracking-widest text-sm mb-4 text-left text-indigo-300">
-                        Support
-                    </h4>
+                <div class="reveal-on-scroll">
+                    <h4 class="font-semibold uppercase tracking-widest text-sm mb-4 text-left text-indigo-300">Support</h4>
                     <ul class="space-y-2 text-slate-500 text-sm text-left">
                         <li><a href="#" class="hover:text-white transition-colors">Help Center</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Report an Issue</a></li>
+                        <li><a href="detector/detectorPage.html" class="hover:text-white transition-colors">Report an Issue</a></li>
                         <li><a href="#" class="hover:text-white transition-colors">Documentation</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Live Chat</a></li>
-                    </ul>
+                        <li><a href="kontak/contactPage.html" class="hover:text-white transition-colors">Live Chat (via Contact)</a></li> </ul>
                 </div>
             </div>
-            <div
-                class="border-t border-gray-700/50 pt-8 flex flex-col sm:flex-row justify-between items-start sm:items-center">
-                <p class="text-sm text-slate-400 mb-6 sm:mb-0 text-left">
-                    © 2025 CyberAware. Dibuat oleh Mr. Anomali
-                </p>
+            <div class="border-t border-gray-700/50 pt-8 flex flex-col sm:flex-row justify-between items-start sm:items-center reveal-on-scroll">
+                <p class="text-sm text-slate-400 mb-6 sm:mb-0 text-left">© 2025 CyberAware. Dibuat oleh Mr. Anomali</p>
                 <div class="flex items-center gap-4 justify-start sm:justify-center">
-                    <a href="#"
-                        class="bg-[#1a1a2e] hover:bg-indigo-900/40 transition-colors w-8 h-8 rounded-full flex items-center justify-center">
-                        <i class="fab fa-facebook-f text-white text-sm"></i>
-                    </a>
-                    <a href="#"
-                        class="bg-[#1a1a2e] hover:bg-indigo-900/40 transition-colors w-8 h-8 rounded-full flex items-center justify-center">
-                        <i class="fab fa-twitter text-white text-sm"></i>
-                    </a>
-                    <a href="#"
-                        class="bg-[#1a1a2e] hover:bg-indigo-900/40 transition-colors w-8 h-8 rounded-full flex items-center justify-center">
-                        <i class="fab fa-instagram text-white text-sm"></i>
-                    </a>
-                    <a href="#"
-                        class="bg-[#1a1a2e] hover:bg-indigo-900/40 transition-colors w-8 h-8 rounded-full flex items-center justify-center">
-                        <i class="fab fa-linkedin-in text-white text-sm"></i>
-                    </a>
+                    <a href="#" class="bg-[#1a1a2e] hover:bg-indigo-900/40 transition-colors w-8 h-8 rounded-full flex items-center justify-center"><i class="fab fa-facebook-f text-white text-sm"></i></a>
+                    <a href="#" class="bg-[#1a1a2e] hover:bg-indigo-900/40 transition-colors w-8 h-8 rounded-full flex items-center justify-center"><i class="fab fa-twitter text-white text-sm"></i></a>
+                    <a href="#" class="bg-[#1a1a2e] hover:bg-indigo-900/40 transition-colors w-8 h-8 rounded-full flex items-center justify-center"><i class="fab fa-instagram text-white text-sm"></i></a>
+                    <a href="#" class="bg-[#1a1a2e] hover:bg-indigo-900/40 transition-colors w-8 h-8 rounded-full flex items-center justify-center"><i class="fab fa-linkedin-in text-white text-sm"></i></a>
                 </div>
             </div>
         </div>
     </footer>
-    <script src="/main.js"></script>
+    <script src="js/main-global.js"></script> 
 </body>
-
 </html>
