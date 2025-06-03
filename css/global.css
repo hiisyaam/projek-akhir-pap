@@ -1,0 +1,121 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* General Body Styles */
+body {
+    background-color: #111125;
+    color: white;
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+}
+
+/* Padding for fixed header */
+body.has-fixed-header {
+    padding-top: 72px; /* Default for smaller screens */
+}
+
+@media (min-width: 1024px) { /* lg breakpoint */
+    body.has-fixed-header {
+        padding-top: 76px; /* Adjusted for larger screens if header height changes */
+    }
+}
+
+/* CyberAware Logo Style */
+.cyberaware {
+    text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+    font-family: "Rubik Mono One", sans-serif;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    background: linear-gradient(90deg,
+            #5a4fcf 10%,
+            #5a4fcf 29.62%,
+            #aba4f5 59.25%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Responsive Adjustments for CyberAware Logo and other specific items */
+@media (max-width: 640px) { /* sm breakpoint */
+    .text-xs-center {
+        text-align: center;
+    }
+    .cyberaware {
+        font-size: 24px; /* Adjusted for better visibility on small screens */
+    }
+    .detector-heading { /* Specific to detectorPage.html heading */
+        font-size: 2.5rem; /* Tailwind text-4xl is 2.25rem, text-5xl is 3rem. This is between. */
+    }
+}
+
+/* Background Color Utilities */
+.bg-cyber-dark {
+    background-color: #111125;
+}
+.bg-cyber-nav { /* Used for header background */
+    background-color: #1a1a2e;
+}
+.bg-cyber-card { /* Used for card elements, dropdowns, footer */
+    background-color: #2d2d44;
+}
+.bg-cyber-mobile-menu { /* Used for mobile menu background */
+    background-color: #1d1d35;
+}
+.hover-bg-cyber-mobile-item:hover { /* Hover for mobile menu items */
+    background-color: #2a2a40;
+}
+
+/* Font Family Utilities (if needed beyond Tailwind's default or 'Inter') */
+.font-rubik-one {
+    font-family: "Rubik Mono One", sans-serif;
+}
+.font-poppins { /* Explicitly define if needed, though Inter is the base */
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Text Shadow Utilities */
+.text-shadow-custom { /* Used for detectorPage.html heading */
+    text-shadow: 0px 3px 6px rgba(90, 79, 207, 0.4);
+}
+
+/* Scroll Reveal Animations (from index.html) */
+.reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.reveal-on-scroll.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+.reveal-on-scroll.fade-in { transform: translateY(0); } /* Base for fade-in only */
+.reveal-on-scroll.slide-left { transform: translateX(-30px); }
+.reveal-on-scroll.slide-left.revealed { transform: translateX(0); }
+.reveal-on-scroll.slide-right { transform: translateX(30px); }
+.reveal-on-scroll.slide-right.revealed { transform: translateX(0); }
+
+/* Testimonial Carousel basic styling (from index.html) */
+#testimonial-carousel .testimonial-slide {
+    transition: opacity 0.7s ease-in-out;
+}
+
+/* Icon filter for user dropdown if SVGs are not inherently the correct color */
+.icon-filter-nav {
+    /* Example: White filter if icons are dark, or a color filter */
+    /* filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(200%) contrast(100%); */
+    /* If icons are already white or light, this might not be needed or can be adjusted */
+}
+
+/* Custom styles for specific elements from other pages if they are common */
+/* Example: Login/Signup form input focus (if consistent across pages) */
+.auth-input {
+    @apply w-full h-10 bg-white/50 rounded-[10px] px-3 text-white placeholder-white/80 text-sm outline-none border border-white/70 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition duration-200 ease-in-out;
+}
+.auth-input-pr-10 { /* For password fields with potential show/hide icon */
+     @apply w-full h-10 bg-white/50 rounded-[10px] px-3 pr-10 text-white placeholder-white/80 text-sm outline-none border border-white/70 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition duration-200 ease-in-out;
+}
