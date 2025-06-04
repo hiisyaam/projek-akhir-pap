@@ -105,12 +105,32 @@
             </div>
 
             <div class="hidden lg:flex items-center space-x-4">
-                <a href="#" class="px-4 py-2 rounded text-white hover:text-violet-300 transition-colors">Login</a>
-                <a href="#"
-                    class="px-4 py-2 bg-violet-600 text-white rounded-md flex items-center space-x-1 hover:bg-violet-700 transition-colors">
-                    <span class="font-medium">Sign up</span>
-                    <i class="fas fa-chevron-right text-xs"></i>
-                </a>
+                 <div class="relative">
+                    <button id="user-menu-button" title="User Profile"
+                        class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:opacity-80 transition-opacity focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-violet-500 overflow-hidden">
+                        <img src="/assets/Male User.svg" alt="User Profile" class="w-full h-full object-cover">
+                    </button>
+
+                    <div id="user-dropdown" class="absolute top-full right-0 mt-2 w-44 bg-cyber-card rounded-md shadow-lg overflow-hidden hidden z-50 border border-gray-700/50">
+                        <div class="px-4 py-3 text-center text-xs text-white font-medium">
+                            denji@gmail.com
+                        </div>
+                        <div class="text-xs font-medium">
+                            <a href="/profile/userProfile.html" class="flex items-center px-4 py-3 text-white hover:bg-gray-700-50 border-t border-gray-700-50 transition-colors">
+                                <img src="/assets/user.svg" alt="Account" class="w-5 h-5 mr-3">
+                                Account details
+                            </a>
+                            <a href="/kontak/contactPage.html" class="flex items-center px-4 py-3 text-white hover:bg-gray-700-50 border-t border-gray-700-50 transition-colors">
+                                <img src="/assets/help.svg" alt="Help" class="w-5 h-5 mr-3">
+                                Help center
+                            </a>
+                            <a href="#" class="flex items-center px-4 py-3 text-white hover:bg-gray-700-50 border-t border-gray-700-50 transition-colors">
+                                <img src="/assets/logout.svg" alt="Logout" class="w-5 h-5 mr-3">
+                                Log out
+                            </a>
+                        </div>
+                    </div>
+                 </div>
             </div>
 
             <button class="lg:hidden text-white focus:outline-none" id="menu-toggle">
@@ -143,16 +163,17 @@
                             <span>Kontak</span>
                         </a>
                     </div>
-
                     <div
                         class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-3 pt-4 border-t border-gray-700">
                         <a href="#"
-                            class="px-4 py-3 border border-gray-600 rounded-md text-center hover:bg-white/10 transition-colors flex-1">
-                            Login
+                            class="px-4 py-3 border border-gray-600 rounded-md text-center hover:bg-white/10 transition-colors flex-1 flex items-center justify-center">
+                            <i class="fas fa-user mr-2"></i>
+                            Profil
                         </a>
                         <a href="#"
-                            class="px-4 py-3 bg-violet-600 text-white rounded-md text-center font-semibold hover:bg-violet-700 transition-colors flex-1">
-                            Sign up
+                            class="px-4 py-3 bg-red-600 text-white rounded-md text-center font-semibold hover:bg-red-700 transition-colors flex-1 flex items-center justify-center">
+                             <i class="fas fa-sign-out-alt mr-2"></i>
+                            Logout
                         </a>
                     </div>
                 </div>
@@ -354,6 +375,26 @@
                 menuIcon.classList.add('fa-times');
             }
         });
+
+        // User Dropdown Toggle
+        const userMenuButton = document.getElementById('user-menu-button');
+        const userDropdown = document.getElementById('user-dropdown');
+
+        if (userMenuButton && userDropdown) {
+            userMenuButton.addEventListener('click', (event) => {
+                event.stopPropagation();
+                userDropdown.classList.toggle('hidden');
+            });
+
+            window.addEventListener('click', (event) => {
+                if (!userDropdown.classList.contains('hidden') &&
+                    !userMenuButton.contains(event.target) &&
+                    !userDropdown.contains(event.target))
+                {
+                    userDropdown.classList.add('hidden');
+                }
+            });
+        }
     </script>
 </body>
 
