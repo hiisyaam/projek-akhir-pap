@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login - CyberAware</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+  href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100..900;1,100..900&family=Rubik+Mono+One&family=Victor+Mono:ital,wght@0,100..700;1,100..700&display=swap"
+  rel="stylesheet" />
+  <link rel="stylesheet" href="../css/global.css">
+  <style>
+    /* Specific styles for login page if any, can remain or be moved to global.css if widely applicable */
+    /* Body background and cyberaware styles are now primarily from global.css */
+    body{
+      font-style: normal;
+    }
+  </style>
+</head>
+<body class="bg-cyber-dark flex flex-col items-center justify-center min-h-screen w-full px-4 has-fixed-header">
+  <header class="fixed top-0 left-0 right-0 z-50 bg-cyber-nav/95 backdrop-blur-sm">
+    <nav class="container mx-auto px-4 lg:px-6 py-4 flex justify-between items-center">
+      <a href="../index.html#hero" class="cyberaware">CYBERAWARE</a>
+    </nav>
+  </header>
+
+  <main class="flex flex-col items-center justify-center w-full reveal-on-scroll">
+    <form id="loginForm" class="relative w-full max-w-md bg-indigo-400 rounded-[32px] px-6 py-6 flex flex-col gap-3 mb-6 shadow-lg">
+      <h1 class="text-white text-2xl font-extrabold text-center">Welcome back!</h1>
+      <h2 class="text-white text-lg font-semibold text-center">We’re so excited to see you again!</h2>
+
+      <div class="flex flex-col gap-3 mt-2">
+        <div>
+          <label for="usernameLogin" class="block text-white text-sm font-semibold mb-1">Username or Email<span class="text-red-600">*</span></label>
+          <input type="text" id="usernameLogin" name="usernameLogin" placeholder="Enter your username or email"
+                 class="w-full h-10 bg-white/50 rounded-[10px] px-3 text-white placeholder-white/80 text-sm outline-none
+                        border border-white/70
+                        focus:border-blue-500 focus:ring-1 focus:ring-blue-500
+                        transition duration-200 ease-in-out auth-input"
+                  required/>
+        </div>
+
+        <div>
+          <label for="passwordLogin" class="block text-white text-sm font-semibold mb-1">Password<span class="text-red-600">*</span></label>
+          <input type="password" id="passwordLogin" name="passwordLogin" placeholder="Enter password"
+                 class="w-full h-10 bg-white/50 rounded-[10px] px-3 pr-10 text-white placeholder-white/80 text-sm outline-none
+                        border border-white/70
+                        focus:border-blue-500 focus:ring-1 focus:ring-blue-500
+                        transition duration-200 ease-in-out auth-input-pr-10"
+                  required/>
+          </div>
+
+        <label class="inline-flex items-center mt-1">
+          <input type="checkbox" class="form-checkbox h-4 w-4 text-indigo-600 bg-white/80 rounded border-white/70 focus:ring-indigo-500" />
+          <span class="ml-2 text-sm text-white font-semibold">Ingatkan Saya</span>
+        </label>
+
+        <button type="submit"
+          class="w-full h-11 bg-indigo-600 rounded-[10px] text-white text-base font-semibold hover:bg-indigo-700 transition mt-2">
+          Login
+        </button>
+
+        <div class="text-sm text-white font-semibold text-center mt-2">
+          <span>Forgot your password? </span>
+          <a href="#" class="text-violet-200 hover:text-white hover:underline transition duration-150 ease-in-out">
+            Click here
+          </a>
+        </div>
+      </div>
+    </form>
+
+    <div class="text-center w-full max-w-md reveal-on-scroll py-5">
+      <p class="text-indigo-300 font-bold mb-3 text-lg">
+        <a href="../signUp/signUpPage.html" class="hover:underline transition duration-150 ease-in-out">Need an account?</a>
+      </p>
+      <hr class="border-gray-500 mb-3" />
+
+      <p class="text-white text-base mb-3">or Log in with:</p>
+
+      <div class="flex justify-center space-x-6">
+        <a href="#" title="Login with Google"><img src="../assets/devicon_google.svg" alt="Google Icon" class="w-6 h-6 object-contain cursor-pointer hover:opacity-80 transition-opacity" /></a>
+        <a href="#" title="Login with Facebook"><img src="../assets/logos_facebook.svg" alt="Facebook Icon" class="w-6 h-6 object-contain cursor-pointer hover:opacity-80 transition-opacity" /></a>
+      </div>
+    </div>
+  </main>
+
+  <script src="../js/main-global.js"></script>
+</body>
+</html>

@@ -224,18 +224,10 @@ function getPathPrefix() {
     const projectDirIndex = pathSegments.indexOf('projek-akhir');
 
     if (projectDirIndex !== -1) {
-        // Calculate depth relative to 'projek-akhir'
-        // Depth is the number of directories between 'projek-akhir' and the current file's directory
-        // Example: /projek-akhir/index.html -> projectDirIndex = 1, pathSegments.length = 3. depth = 3 - (1 + 2) = 0. Prefix = ""
-        // Example: /projek-akhir/kontak/contactPage.html -> projectDirIndex = 1, pathSegments.length = 4. depth = 4 - (1 + 2) = 1. Prefix = "../"
         const depth = pathSegments.length - (projectDirIndex + 2);
         for (let i = 0; i < depth; i++) {
             pathPrefix += '../';
         }
-    } else {
-        // Fallback if 'projek-akhir' is not in path (e.g., deployed at root)
-        // This might need adjustment based on actual deployment structure if 'projek-akhir' is not part of the URL
-        // console.warn("'projek-akhir' not found in path. pathPrefix might be incorrect.");
     }
     return pathPrefix;
 }
@@ -315,7 +307,13 @@ function handleLogout(event) {
     localStorage.removeItem('cyberAwareUserEmail');
     const pathPrefix = getPathPrefix();
     // Ensure redirection to index.html at the project root
-    window.location.href = pathPrefix ? `${pathPrefix}index.html` : 'index.html';
+    let targetUrl;
+    if (pathPrefix === "") {
+        targetUrl = 'index.html'; // Or './'
+    } else {
+        targetUrl = pathPrefix; // This will point to the project root directory e.g. '../'
+    }
+    window.location.href = targetUrl;
 }
 
 // ----- Page Specific Initializations & Event Handlers -----
@@ -323,11 +321,11 @@ document.addEventListener('DOMContentLoaded', function () {
     // Global initializations for all pages
     initMobileMenuGlobal();
     checkLoginStatusAndUpdateNav();
-    if (typeof initSmoothScroll === 'function') initSmoothScroll(); // Make smooth scroll global
-    if (typeof initScrollRevealAnimations === 'function') initScrollRevealAnimations(); // Make scroll reveal global
+    if (typeof initSmoothScroll === 'function') initSmoothScroll();
+    if (typeof initScrollRevealAnimations === 'function') initScrollRevealAnimations();
 
     // --- Home Page (index.html) Specific Initializations ---
-    if (document.getElementById('hero')) { // Unique element on index.html
+    if (document.getElementById('hero')) {
         if (typeof initTestimonialCarousel === 'function') initTestimonialCarousel();
         if (typeof initNumberCounters === 'function') initNumberCounters();
     }
@@ -345,7 +343,13 @@ document.addEventListener('DOMContentLoaded', function () {
                     localStorage.setItem('cyberAwareUserLoggedIn', 'true');
                     localStorage.setItem('cyberAwareUserEmail', emailInput.value);
                     const pathPrefix = getPathPrefix();
-                    window.location.href = pathPrefix ? `${pathPrefix}index.html` : 'index.html';
+                    let targetUrl;
+                    if (pathPrefix === "") {
+                        targetUrl = '../../';
+                    } else {
+                        targetUrl = pathPrefix;
+                    }
+                    window.location.href = targetUrl;
                 } else {
                     alert('Email atau password salah. (Hint: user@example.com / password123)');
                 }
@@ -379,9 +383,15 @@ document.addEventListener('DOMContentLoaded', function () {
             }
 
             localStorage.setItem('cyberAwareUserLoggedIn', 'true');
-            localStorage.setItem('cyberAwareUserEmail', usernameInput.value);
+            localStorage.setItem('cyberAwareUserEmail', usernameInput.value); // Using username as email for demo
             const pathPrefix = getPathPrefix();
-            window.location.href = pathPrefix ? `${pathPrefix}index.html` : 'index.html';
+            let targetUrl;
+            if (pathPrefix === "") { // If already at project root
+                targetUrl = 'index.html'; // Or './'
+            } else { // If in a sub-directory
+                targetUrl = pathPrefix; // Navigates to project root directory
+            }
+            window.location.href = targetUrl;
         });
     }
 
@@ -389,9 +399,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // --- Detector Page (detector/detectorPage.html) Handler ---
     const analysisForm = document.getElementById('analysis-form');
-    const urlInput = document.getElementById('url-input');
-    const fileInput = document.getElementById('file-input');
-    const searchInput = document.getElementById('search-input');
+    // const urlInput = document.getElementById('url-input'); // These are dynamically added/removed
+    // const fileInput = document.getElementById('file-input');
+    // const searchInput = document.getElementById('search-input');
 
     const tabFile = document.getElementById('tab-file');
     const tabUrl = document.getElementById('tab-url');
@@ -401,7 +411,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function updateActiveTab(activeTab) {
         const tabs = [tabFile, tabUrl, tabSearch];
-        // const pathPrefix = getPathPrefix(); // Not needed for this function specifically
 
         tabs.forEach(tab => {
             if (tab) {
@@ -432,6 +441,10 @@ document.addEventListener('DOMContentLoaded', function () {
                         fileNameDisplay.textContent = e.target.files[0].name;
                         fileNameDisplay.classList.remove('text-gray-400');
                         fileNameDisplay.classList.add('text-white');
+                    } else if (fileNameDisplay) {
+                        fileNameDisplay.textContent = 'Pilih atau jatuhkan file di sini';
+                        fileNameDisplay.classList.add('text-gray-400');
+                        fileNameDisplay.classList.remove('text-white');
                     }
                 });
 
@@ -463,7 +476,7 @@ document.addEventListener('DOMContentLoaded', function () {
             if (currentUrlInput && currentUrlInput.offsetParent !== null) {
                 submissionValue = currentUrlInput.value.trim();
                 submissionType = "URL";
-            } else if (currentFileInput && currentFileInput.files && currentFileInput.files.length > 0) { // Check visibility of parent or actual input if structure changes
+            } else if (currentFileInput && currentFileInput.files && currentFileInput.files.length > 0) {
                 submissionValue = currentFileInput.files[0].name;
                 submissionType = "File";
             } else if (currentSearchInput && currentSearchInput.offsetParent !== null) {
@@ -475,10 +488,6 @@ document.addEventListener('DOMContentLoaded', function () {
             if (submissionValue !== "") {
                 alert(`${submissionType} "${submissionValue}" akan dianalisis (simulasi).\nMengarahkan ke halaman hasil analisis default.`);
                 const pathPrefix = getPathPrefix();
-                // Correct relative path from detectorPage.html to analisisPage.html
-                // Assuming detectorPage.html is at projek-akhir/detector/detectorPage.html
-                // And analisisPage.html is at projek-akhir/analisis/analisisPage.html
-                // So, from 'detector' folder, go up ('../') then into 'analisis/'
                 window.location.href = `${pathPrefix}analisis/analisisPage.html`;
             } else {
                 alert('Masukkan input yang valid untuk dianalisis.');
