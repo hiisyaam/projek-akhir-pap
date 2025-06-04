@@ -1,4 +1,3 @@
-// User menu, mobile menu, and body padding are handled by main-global.js
 
 const contactForm = document.getElementById("contactForm");
 if (contactForm) {
@@ -10,7 +9,6 @@ if (contactForm) {
         const message = document.getElementById("contact-message").value;
 
         if (name && email && subject && message) {
-            // Basic email validation
             if (!/^\S+@\S+\.\S+$/.test(email)) {
                 alert('Format email tidak valid.');
                 return;

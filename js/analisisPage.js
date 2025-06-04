@@ -1,5 +1,3 @@
-// Mobile menu and user dropdown are handled by main-global.js, so removed from here.
-
 const tabButtons = document.querySelectorAll(".tab-btn");
 const tabContents = {
   detection: document.getElementById("detection-content"),
@@ -51,7 +49,7 @@ if (reanalyzeBtn) {
 
       const successMsg = document.createElement("div");
       successMsg.className =
-        "fixed top-20 right-4 bg-green-600 text-white px-4 py-2 rounded-lg shadow-lg z-50"; // Adjusted top from top-4
+        "fixed top-20 right-4 bg-green-600 text-white px-4 py-2 rounded-lg shadow-lg z-50";
       successMsg.textContent = "Analisis berhasil diperbarui!";
       document.body.appendChild(successMsg);
 
@@ -65,11 +63,9 @@ if (reanalyzeBtn) {
 const securityItems = document.querySelectorAll(".security-item");
 securityItems.forEach((item) => {
   item.addEventListener("mouseenter", () => {
-    // item.style.transform = "translateX(5px)"; // Handled by hover class if preferred
   });
 
   item.addEventListener("mouseleave", () => {
-    // item.style.transform = "translateX(0)"; // Handled by hover class if preferred
   });
 });
 
@@ -77,10 +73,10 @@ window.addEventListener("load", () => {
   const progressBars = document.querySelectorAll(".progress-bar");
   progressBars.forEach((bar) => {
     const width = bar.style.width;
-    bar.style.width = "0%"; // Start from 0 for animation
-    setTimeout(() => { // Delay to ensure transition is visible
+    bar.style.width = "0%";
+    setTimeout(() => {
       bar.style.width = width;
-    }, 300); // Shorter delay after global scripts might run
+    }, 300);
   });
 });
 
@@ -88,13 +84,13 @@ securityItems.forEach((item) => {
   const tooltip = document.createElement("div");
   tooltip.className =
     "absolute bg-gray-800 text-white text-sm px-3 py-2 rounded-lg shadow-lg z-50 opacity-0 pointer-events-none transition-opacity duration-200";
-  tooltip.style.bottom = "100%"; // Position above the item
+  tooltip.style.bottom = "100%";
   tooltip.style.left = "50%";
-  tooltip.style.transform = "translateX(-50%) translateY(-8px)"; // Adjust vertical spacing
+  tooltip.style.transform = "translateX(-50%) translateY(-8px)";
   tooltip.style.whiteSpace = "nowrap";
 
 
-  const securityTypeElement = item.querySelector(".text-white span.font-medium"); // More specific selector
+  const securityTypeElement = item.querySelector(".text-white span.font-medium");
   if (securityTypeElement) {
     const securityType = securityTypeElement.textContent.trim();
     const tooltipTexts = {
@@ -113,7 +109,7 @@ securityItems.forEach((item) => {
   }
 
 
-  item.style.position = "relative"; // Needed for absolute positioning of tooltip
+  item.style.position = "relative";
   item.appendChild(tooltip);
 
   item.addEventListener("mouseenter", () => {
@@ -127,43 +123,4 @@ securityItems.forEach((item) => {
   });
 });
 
-// Initialize default tab
 switchTab("detection");
-
-// Smooth scroll for internal page anchors if any (main-global.js handles global smooth scroll)
-// document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-//   anchor.addEventListener("click", function (e) {
-//     e.preventDefault();
-//     const target = document.querySelector(this.getAttribute("href"));
-//     if (target) {
-//       target.scrollIntoView({
-//         behavior: "smooth",
-//         block: "start",
-//       });
-//     }
-//   });
-// });
-
-// Intersection observer for tip cards (Scroll reveal is now global via main-global.js)
-// const observerOptions = {
-//   threshold: 0.1,
-//   rootMargin: "0px 0px -50px 0px",
-// };
-
-// const observer = new IntersectionObserver((entries) => {
-//   entries.forEach((entry) => {
-//     if (entry.isIntersecting) {
-//       entry.target.style.opacity = "1";
-//       entry.target.style.transform = "translateY(0)";
-//       // entry.target.classList.add('revealed'); // If using global scroll reveal classes
-//     }
-//   });
-// }, observerOptions);
-
-// document.querySelectorAll(".tip-card").forEach((card) => {
-//   // Initial styles for JS-driven animation, if not using global .reveal-on-scroll
-//   // card.style.opacity = "0";
-//   // card.style.transform = "translateY(20px)";
-//   // card.style.transition = "opacity 0.6s ease, transform 0.6s ease";
-//   // observer.observe(card);
-// });

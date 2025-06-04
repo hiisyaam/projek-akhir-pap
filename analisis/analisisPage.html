@@ -13,7 +13,7 @@
         href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100..900;1,100..900&family=Rubik+Mono+One&family=Victor+Mono:ital,wght@0,100..700;1,100..700&display=swap"
         rel="stylesheet" />
     <link rel="stylesheet" href="../css/global.css"> <style>
-        .cyberaware { /* Already in global.css, can be removed from here if identical */
+        .cyberaware {
             text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
             font-family: "Rubik Mono One", sans-serif;
             font-size: 32px;
@@ -29,15 +29,15 @@
             -webkit-text-fill-color: transparent;
         }
 
-        .font-rubik-one { /* Already in global.css */
+        .font-rubik-one {
             font-family: "Rubik Mono One", sans-serif;
         }
 
-        .text-shadow-custom { /* Already in global.css */
+        .text-shadow-custom {
             text-shadow: 0px 3px 6px rgba(90, 79, 207, 0.4);
         }
 
-        @media (max-width: 640px) { /* Already in global.css */
+        @media (max-width: 640px) {
             .text-xs-center {
                 text-align: center;
             }
@@ -50,15 +50,6 @@
                 font-size: 2.5rem;
             }
         }
-
-        /* .bg-cyber-dark { background-color: #111125; } */ /* Defined in global.css */
-        /* .bg-cyber-nav { background-color: #1a1a2e; } */ /* Defined in global.css */
-        /* .bg-cyber-card { background-color: #2d2d44; } */ /* Defined in global.css */
-        /* .bg-cyber-mobile-menu { background-color: #1d1d35; } */ /* Defined in global.css */
-        /* .hover-bg-cyber-mobile-item:hover { background-color: #2a2a40; } */ /* Defined in global.css */
-
-        /* body { padding-top: 72px; } */ /* Handled by has-fixed-header class from global.css */
-        /* @media (min-width: 1024px) { body { padding-top: 76px; } } */ /* Handled by has-fixed-header */
 
         .tab-content {
             animation: fadeIn 0.3s ease-in-out;
@@ -83,12 +74,8 @@
             transition: all 0.3s ease;
         }
 
-        .security-item:hover { /* This could be a Tailwind hover: variant if simple enough */
+        .security-item:hover {
             background-color: rgba(90, 79, 207, 0.1);
-            /* Consider adding to global.css if this hover style is reused, or make more specific */
-            /* border-radius: 8px; */ /* Add rounded-lg in HTML */
-            /* padding: 1rem; */ /* Add p-4 in HTML */
-            /* margin: -1rem; */ /* This is tricky, might need to adjust layout or use negative margin classes if available */
         }
 
         .tip-card {

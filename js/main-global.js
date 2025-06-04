@@ -52,15 +52,15 @@ function initTestimonialCarousel() {
     function showSlide(index) {
         slides.forEach((slide, i) => {
             if (i === index) {
-                slide.classList.remove('hidden'); // Ensure it's not hidden by Tailwind
-                setTimeout(() => { // Timeout to allow display property to take effect before transition
+                slide.classList.remove('hidden');
+                setTimeout(() => {
                     slide.style.opacity = 1;
-                }, 20); // A small delay
+                }, 20);
             } else {
                 slide.style.opacity = 0;
-                setTimeout(() => { // Hide after transition
-                    slide.classList.add('hidden'); // Add Tailwind hidden after transition
-                }, 700); // Match transition duration in CSS
+                setTimeout(() => {
+                    slide.classList.add('hidden');
+                }, 700);
             }
         });
     }
@@ -91,7 +91,7 @@ function initTestimonialCarousel() {
 
 function initNumberCounters() {
     const counters = document.querySelectorAll('.number-counter');
-    const animationDuration = 1500; // Duration in ms
+    const animationDuration = 1500;
 
     counters.forEach(counter => {
         const target = +counter.getAttribute('data-target');
@@ -156,10 +156,7 @@ function initScrollRevealAnimations() {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('revealed');
-                // obs.unobserve(entry.target); // Uncomment to trigger only once
             } else {
-                // Optional: Remove 'revealed' to re-trigger on scroll up/down if not unobserved
-                // entry.target.classList.remove('revealed');
             }
         });
     }, { threshold: 0.1 });
@@ -170,7 +167,6 @@ function initScrollRevealAnimations() {
 }
 
 
-// ----- Global Utility Functions -----
 function initMobileMenuGlobal() {
     const menuToggle = document.getElementById('menu-toggle');
     const mobileMenu = document.getElementById('mobile-menu');
@@ -216,11 +212,9 @@ window.addEventListener('click', (event) => {
 });
 
 
-// ----- Authentication Simulation & Navigation Update -----
 function getPathPrefix() {
     let pathPrefix = '';
     const pathSegments = window.location.pathname.split('/');
-    // Use 'projek-akhir' as the key segment to determine depth
     const projectDirIndex = pathSegments.indexOf('projek-akhir');
 
     if (projectDirIndex !== -1) {
@@ -306,31 +300,26 @@ function handleLogout(event) {
     localStorage.removeItem('cyberAwareUserLoggedIn');
     localStorage.removeItem('cyberAwareUserEmail');
     const pathPrefix = getPathPrefix();
-    // Ensure redirection to index.html at the project root
     let targetUrl;
     if (pathPrefix === "") {
-        targetUrl = 'index.html'; // Or './'
+        targetUrl = 'index.html';
     } else {
-        targetUrl = pathPrefix; // This will point to the project root directory e.g. '../'
+        targetUrl = pathPrefix;
     }
     window.location.href = targetUrl;
 }
 
-// ----- Page Specific Initializations & Event Handlers -----
 document.addEventListener('DOMContentLoaded', function () {
-    // Global initializations for all pages
     initMobileMenuGlobal();
     checkLoginStatusAndUpdateNav();
     if (typeof initSmoothScroll === 'function') initSmoothScroll();
     if (typeof initScrollRevealAnimations === 'function') initScrollRevealAnimations();
 
-    // --- Home Page (index.html) Specific Initializations ---
     if (document.getElementById('hero')) {
         if (typeof initTestimonialCarousel === 'function') initTestimonialCarousel();
         if (typeof initNumberCounters === 'function') initNumberCounters();
     }
 
-    // --- Login Page (loginPage.html) Handler ---
     const loginForm = document.getElementById('loginForm');
     if (loginForm) {
         loginForm.addEventListener('submit', function (event) {
@@ -359,7 +348,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // --- Sign Up Page (signUpPage.html) Handler ---
+
     const signUpForm = document.getElementById('signUpForm');
     if (signUpForm) {
         signUpForm.addEventListener('submit', function (event) {
@@ -383,13 +372,13 @@ document.addEventListener('DOMContentLoaded', function () {
             }
 
             localStorage.setItem('cyberAwareUserLoggedIn', 'true');
-            localStorage.setItem('cyberAwareUserEmail', usernameInput.value); // Using username as email for demo
+            localStorage.setItem('cyberAwareUserEmail', usernameInput.value);
             const pathPrefix = getPathPrefix();
             let targetUrl;
-            if (pathPrefix === "") { // If already at project root
-                targetUrl = 'index.html'; // Or './'
-            } else { // If in a sub-directory
-                targetUrl = pathPrefix; // Navigates to project root directory
+            if (pathPrefix === "") {
+                targetUrl = 'index.html';
+            } else {
+                targetUrl = pathPrefix;
             }
             window.location.href = targetUrl;
         });

@@ -14,8 +14,6 @@
         rel="stylesheet" />
     <link rel="stylesheet" href="../css/global.css">
     <style>
-        /* Styles from global.css that are redundant are removed (body, .cyberaware, .has-fixed-header, etc.) */
-        /* Unique styles for documentation page are kept to maintain appearance */
         ::-webkit-scrollbar {
             width: 8px;
             height: 8px;
@@ -23,70 +21,52 @@
 
         ::-webkit-scrollbar-track {
             background: #1f2937;
-            /* Tailwind gray-800 */
         }
 
         ::-webkit-scrollbar-thumb {
             background: #4b5563;
-            /* Tailwind gray-600 */
             border-radius: 4px;
         }
 
         ::-webkit-scrollbar-thumb:hover {
             background: #6b7280;
-            /* Tailwind gray-500 */
         }
 
         .text-brand-purple {
-            /* Digunakan oleh tombol 'Get Started' */
             color: #a78bfa;
         }
 
         .bg-brand-purple-opacity {
-            /* Digunakan oleh tombol 'Get Started' */
             background-color: rgba(167, 139, 250, 0.2);
-            /* a78bfa with opacity */
         }
 
         .border-brand-purple {
-            /* Digunakan oleh tombol 'Get Started' */
             border-color: #a78bfa;
-            /* Match text-brand-purple */
         }
 
         .hover-text-brand-purple:hover {
-            /* Digunakan oleh link feedback */
             color: #a78bfa;
         }
 
         .text-custom-violet {
-            /* Digunakan untuk link internal di konten */
             color: #a78bfa;
         }
 
         .bg-custom-violet {
-            /* Digunakan untuk dot aktif di sidebar */
             background-color: #a78bfa;
         }
 
         .sidebar-link-active {
-            /* Untuk link aktif di sidebar */
             color: #a78bfa !important;
-            /* Tailwind text-custom-violet */
             font-weight: 600;
-            /* Make active link bolder */
         }
 
-        /* .sidebar-link-active .group-hover\:bg-custom-violet, (Tidak digunakan secara langsung di HTML user) */
         .sidebar-link-active .bg-neutral-500 {
-            /* Mengubah warna dot default menjadi warna aktif */
             background-color: #a78bfa !important;
         }
 
         .sidebar-timeline {
-            /* Garis vertikal di sidebar */
             min-height: 1.5rem;
-            /* Atur tinggi minimal agar terlihat */
         }
     </style>
 </head>
