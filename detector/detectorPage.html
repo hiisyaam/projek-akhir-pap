@@ -19,8 +19,13 @@
             font-family: 'Inter', sans-serif;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
+            padding-top: 72px; /* Default padding for fixed header */
         }
-
+        @media (min-width: 1024px) {
+             body {
+                padding-top: 76px; /* Padding for larger screens */
+             }
+        }
         .cyberaware {
             text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
             font-family: "Rubik Mono One", sans-serif;
@@ -28,60 +33,23 @@
             font-style: normal;
             font-weight: 400;
             line-height: normal;
-            background: linear-gradient(90deg,
-                    #5a4fcf 10%,
-                    #5a4fcf 29.62%,
-                    #aba4f5 59.25%);
+            background: linear-gradient(90deg, #5a4fcf 10%, #5a4fcf 29.62%, #aba4f5 59.25%);
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-
-        .font-rubik-one {
-             font-family: "Rubik Mono One", sans-serif;
-        }
-        .text-shadow-custom {
-            text-shadow: 0px 3px 6px rgba(90, 79, 207, 0.4);
-        }
-
+        .font-rubik-one { font-family: "Rubik Mono One", sans-serif; }
+        .text-shadow-custom { text-shadow: 0px 3px 6px rgba(90, 79, 207, 0.4); }
         @media (max-width: 640px) {
-            .text-xs-center {
-                text-align: center;
-            }
-
-            .cyberaware {
-                font-size: 24px;
-            }
-             .detector-heading {
-                font-size: 2.5rem;
-             }
+            .text-xs-center { text-align: center; }
+            .cyberaware { font-size: 24px; }
+            .detector-heading { font-size: 2.5rem; }
         }
-
-        .bg-cyber-dark {
-            background-color: #111125;
-        }
-        .bg-cyber-nav {
-            background-color: #1a1a2e;
-        }
-        .bg-cyber-card {
-            background-color: #2d2d44;
-        }
-        .bg-cyber-mobile-menu {
-            background-color: #1d1d35;
-        }
-        .hover-bg-cyber-mobile-item:hover {
-             background-color: #2a2a40;
-        }
-
-        body {
-            padding-top: 72px;
-        }
-        @media (min-width: 1024px) {
-             body {
-                padding-top: 76px;
-             }
-        }
-
+        .bg-cyber-dark { background-color: #111125; }
+        .bg-cyber-nav { background-color: #1a1a2e; }
+        .bg-cyber-card { background-color: #2d2d44; }
+        .bg-cyber-mobile-menu { background-color: #1d1d35; }
+        .hover-bg-cyber-mobile-item:hover { background-color: #2a2a40; }
     </style>
 </head>
 
@@ -89,7 +57,7 @@
 
     <header class="fixed top-0 left-0 right-0 z-50 bg-cyber-nav/95 backdrop-blur-sm">
         <nav class="container mx-auto px-4 lg:px-6 py-4 flex justify-between items-center">
-            <a href="#" class="cyberaware">CYBERAWARE</a>
+            <a href="../index.html#hero" class="cyberaware">CYBERAWARE</a>
 
             <div class="hidden lg:flex items-center space-x-8">
                 <a href="#" class="text-white hover:text-violet-300 transition-colors">Beranda</a>
@@ -99,12 +67,32 @@
             </div>
 
             <div class="hidden lg:flex items-center space-x-4">
-                <a href="#" class="px-4 py-2 rounded text-white hover:text-violet-300 transition-colors">Login</a>
-                <a href="#"
-                    class="px-4 py-2 bg-violet-600 text-white rounded-md flex items-center space-x-1 hover:bg-violet-700 transition-colors">
-                    <span class="font-medium">Sign up</span>
-                    <i class="fas fa-chevron-right text-xs"></i>
-                </a>
+                 <div class="relative">
+                    <button id="user-menu-button" title="User Profile"
+                        class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:opacity-80 transition-opacity focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-violet-500 overflow-hidden">
+                        <img src="/assets/Male User.svg" alt="User Profile" class="w-full h-full object-cover">
+                    </button>
+
+                    <div id="user-dropdown" class="absolute top-full right-0 mt-2 w-44 bg-cyber-card rounded-md shadow-lg overflow-hidden hidden z-50 border border-gray-700/50">
+                        <div class="px-4 py-3 text-center text-xs text-white font-medium">
+                            denji@gmail.com
+                        </div>
+                        <div class="text-xs font-medium">
+                            <a href="/profile/userProfile.html" class="flex items-center px-4 py-3 text-white hover:bg-gray-700-50 border-t border-gray-700-50 transition-colors">
+                                <img src="/assets/user.svg" alt="Account" class="w-5 h-5 mr-3">
+                                Account details
+                            </a>
+                            <a href="/kontak/contactPage.html" class="flex items-center px-4 py-3 text-white hover:bg-gray-700-50 border-t border-gray-700-50 transition-colors">
+                                <img src="/assets/help.svg" alt="Help" class="w-5 h-5 mr-3">
+                                Help center
+                            </a>
+                            <a href="#" class="flex items-center px-4 py-3 text-white hover:bg-gray-700-50 border-t border-gray-700-50 transition-colors">
+                                <img src="/assets/logout.svg" alt="Logout" class="w-5 h-5 mr-3">
+                                Log out
+                            </a>
+                        </div>
+                    </div>
+                 </div>
             </div>
 
             <button class="lg:hidden text-white focus:outline-none" id="menu-toggle">
@@ -137,16 +125,17 @@
                             <span>Kontak</span>
                         </a>
                     </div>
-
                     <div
                         class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-3 pt-4 border-t border-gray-700">
                         <a href="#"
-                            class="px-4 py-3 border border-gray-600 rounded-md text-center hover:bg-white/10 transition-colors flex-1">
-                            Login
+                            class="px-4 py-3 border border-gray-600 rounded-md text-center hover:bg-white/10 transition-colors flex-1 flex items-center justify-center">
+                            <i class="fas fa-user mr-2"></i>
+                            Profil
                         </a>
                         <a href="#"
-                            class="px-4 py-3 bg-violet-600 text-white rounded-md text-center font-semibold hover:bg-violet-700 transition-colors flex-1">
-                            Sign up
+                            class="px-4 py-3 bg-red-600 text-white rounded-md text-center font-semibold hover:bg-red-700 transition-colors flex-1 flex items-center justify-center">
+                             <i class="fas fa-sign-out-alt mr-2"></i>
+                            Logout
                         </a>
                     </div>
                 </div>
@@ -165,67 +154,53 @@
 
         <div class="w-full max-w-xl mb-12">
             <div class="flex justify-center items-center gap-8 md:gap-16 text-lg font-medium border-b border-gray-700">
-                <button class="py-3 text-white border-b-2 border-transparent hover:text-violet-300 hover:border-violet-300 transition-all cursor-pointer">File</button>
-                <button class="py-3 text-violet-300 border-b-2 border-violet-300 font-semibold cursor-pointer">URL</button>
-                <button class="py-3 text-white border-b-2 border-transparent hover:text-violet-300 hover:border-violet-300 transition-all cursor-pointer">Search</button>
+                <button id="tab-file" class="detector-tab py-3 text-white border-b-2 border-transparent hover:text-violet-300 hover:border-violet-300 transition-all cursor-pointer">File</button>
+                <button id="tab-url" class="detector-tab py-3 text-violet-300 border-b-2 border-violet-300 font-semibold cursor-pointer">URL</button>
+                <button id="tab-search" class="detector-tab py-3 text-white border-b-2 border-transparent hover:text-violet-300 hover:border-violet-300 transition-all cursor-pointer">Search</button>
             </div>
         </div>
 
-        <div class="w-full max-w-2xl flex flex-col sm:flex-row items-center gap-4 mb-16">
+        <form id="analysis-form" class="w-full max-w-2xl flex flex-col sm:flex-row items-center gap-4 mb-16">
             <div class="relative flex-grow w-full">
-                <input type="text" placeholder="Masukkan URL yang mencurigakan di sini"
+                <input type="text" id="url-input" placeholder="Masukkan URL yang mencurigakan di sini"
                     class="w-full h-14 px-6 py-4 bg-cyber-card rounded-lg text-white text-lg placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-violet-600 border border-gray-700" />
             </div>
-            <button
-                class="w-full sm:w-14 h-14 bg-violet-600 rounded-lg flex justify-center items-center hover:bg-violet-700 transition duration-200 flex-shrink-0">
+            <button type="submit" id="submit-analysis-button"
+                class="w-full sm:w-14 h-14 bg-violet-600 rounded-lg flex justify-center items-center hover:bg-violet-700 transition duration-200 flex-shrink-0 disabled:opacity-50 disabled:cursor-not-allowed">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M5 12H19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                     <path d="M12 5L19 12L12 19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
             </button>
-        </div>
+        </form>
 
         <p class="text-sm text-gray-400 text-center max-w-xl">
-            Dengan mengirimkan data di atas, Anda menyetujui <a href="#"
-                class="text-violet-400 hover:underline">Ketentuan Layanan</a> dan <a href="#"
-                class="text-violet-400 hover:underline">Pemberitahuan Privasi kami</a>, dan untuk berbagi pengiriman
+            Dengan mengirimkan data di atas, Anda menyetujui <a href="#" class="text-violet-400 hover:underline">Ketentuan Layanan</a> 
+            dan <a href="#" class="text-violet-400 hover:underline">Pemberitahuan Privasi kami</a>, dan untuk berbagi pengiriman
             Sampel Anda dengan komunitas keamanan. Mohon untuk tidak mengirimkan informasi pribadi apa pun; kami tidak
-            bertanggung jawab atas isi kiriman Anda. <a href="#" class="text-violet-400 hover:underline">Pelajari lebih
-                lanjut.</a>
+            bertanggung jawab atas isi kiriman Anda. <a href="#" class="text-violet-400 hover:underline">Pelajari lebih lanjut.</a>
         </p>
     </main>
 
-    <footer class="bg-cyber-card py-12 md:px-16 px-7 rounded mt-24"> <div class="container mx-auto">
+    <footer class="bg-cyber-card py-12 md:px-16 px-7 rounded mt-24">
+        <div class="container mx-auto">
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10 mb-12">
                 <div class="lg:col-span-2 text-left ">
-                    <h2 class="text-2xl font-bold text-indigo-400 cyberaware md:text-sm mb-2">
-                        CYBERAWARE
-                    </h2>
-
-                    <h3 class="text-lg font-semibold text-slate-100 mb-4">
-                        Lindungi Dirimu di Dunia Digital
-                    </h3>
-                    <p class="text-slate-100 text-sm max-w-md">
-                        We are dedicated to delivering innovative solutions that empower
-                        businesses to thrive in an ever-changing world.
-                    </p>
+                    <a href="../index.html#hero" class="cyberaware md:text-2xl mb-2 inline-block">CYBERAWARE</a>
+                    <h3 class="text-lg font-semibold text-slate-100 mb-4">Lindungi Dirimu di Dunia Digital</h3>
+                    <p class="text-slate-100 text-sm max-w-md">We are dedicated to delivering innovative solutions that empower businesses to thrive in an ever-changing world.</p>
                 </div>
-
                 <div>
-                    <h4 class="font-semibold uppercase tracking-widest text-sm mb-4 text-left text-indigo-300">
-                        Quick Links
-                    </h4>
+                    <h4 class="font-semibold uppercase tracking-widest text-sm mb-4 text-left text-indigo-300">Quick Links</h4>
                     <ul class="space-y-2 text-slate-500 text-sm text-left">
-                        <li><a href="#" class="hover:text-white transition-colors">Home</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">About us</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Services</a></li>
+                        <li><a href="../index.html#hero" class="hover:text-white transition-colors">Home</a></li>
+                        <li><a href="../index.html#visi-misi" class="hover:text-white transition-colors">About us</a></li>
+                        <li><a href="../index.html#fitur-kami" class="hover:text-white transition-colors">Services</a></li>
                         <li><a href="#" class="hover:text-white transition-colors">Features</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h4 class="font-semibold uppercase tracking-widest text-sm mb-4 text-left text-indigo-300">
-                        Explore
-                    </h4>
+                    <h4 class="font-semibold uppercase tracking-widest text-sm mb-4 text-left text-indigo-300">Explore</h4>
                     <ul class="space-y-2 text-slate-500 text-sm text-left">
                         <li><a href="#" class="hover:text-white transition-colors">Our Story</a></li>
                         <li><a href="#" class="hover:text-white transition-colors">Meet the Team</a></li>
@@ -234,9 +209,7 @@
                     </ul>
                 </div>
                 <div>
-                    <h4 class="font-semibold uppercase tracking-widest text-sm mb-4 text-left text-indigo-300">
-                        Support
-                    </h4>
+                    <h4 class="font-semibold uppercase tracking-widest text-sm mb-4 text-left text-indigo-300">Support</h4>
                     <ul class="space-y-2 text-slate-500 text-sm text-left">
                         <li><a href="#" class="hover:text-white transition-colors">Help Center</a></li>
                         <li><a href="#" class="hover:text-white transition-colors">Report an Issue</a></li>
@@ -245,33 +218,19 @@
                     </ul>
                 </div>
             </div>
-            <div
-                class="border-t border-gray-700/50 pt-8 flex flex-col sm:flex-row justify-between items-start sm:items-center">
-                <p class="text-sm text-slate-400 mb-6 sm:mb-0 text-left">
-                    © 2025 CyberAware. Dibuat oleh Mr. Anomali
-                </p>
+            <div class="border-t border-gray-700/50 pt-8 flex flex-col sm:flex-row justify-between items-start sm:items-center">
+                <p class="text-sm text-slate-400 mb-6 sm:mb-0 text-left">© 2025 CyberAware. Dibuat oleh Mr. Anomali</p>
                 <div class="flex items-center gap-4 justify-start sm:justify-center">
-                    <a href="#"
-                        class="bg-[#1a1a2e] hover:bg-indigo-900/40 transition-colors w-8 h-8 rounded-full flex items-center justify-center">
-                        <i class="fab fa-facebook-f text-white text-sm"></i>
-                    </a>
-                    <a href="#"
-                        class="bg-[#1a1a2e] hover:bg-indigo-900/40 transition-colors w-8 h-8 rounded-full flex items-center justify-center">
-                        <i class="fab fa-twitter text-white text-sm"></i>
-                    </a>
-                    <a href="#"
-                        class="bg-[#1a1a2e] hover:bg-indigo-900/40 transition-colors w-8 h-8 rounded-full flex items-center justify-center">
-                        <i class="fab fa-instagram text-white text-sm"></i>
-                    </a>
-                    <a href="#"
-                        class="bg-[#1a1a2e] hover:bg-indigo-900/40 transition-colors w-8 h-8 rounded-full flex items-center justify-center">
-                        <i class="fab fa-linkedin-in text-white text-sm"></i>
-                    </a>
+                    <a href="#" class="bg-[#1a1a2e] hover:bg-indigo-900/40 transition-colors w-8 h-8 rounded-full flex items-center justify-center"><i class="fab fa-facebook-f text-white text-sm"></i></a>
+                    <a href="#" class="bg-[#1a1a2e] hover:bg-indigo-900/40 transition-colors w-8 h-8 rounded-full flex items-center justify-center"><i class="fab fa-twitter text-white text-sm"></i></a>
+                    <a href="#" class="bg-[#1a1a2e] hover:bg-indigo-900/40 transition-colors w-8 h-8 rounded-full flex items-center justify-center"><i class="fab fa-instagram text-white text-sm"></i></a>
+                    <a href="#" class="bg-[#1a1a2e] hover:bg-indigo-900/40 transition-colors w-8 h-8 rounded-full flex items-center justify-center"><i class="fab fa-linkedin-in text-white text-sm"></i></a>
                 </div>
             </div>
         </div>
     </footer>
     <script>
+        // Menu Mobile Toggle
         const menuToggle = document.getElementById('menu-toggle');
         const mobileMenu = document.getElementById('mobile-menu');
         const menuIcon = menuToggle.querySelector('i');
@@ -286,7 +245,26 @@
                 menuIcon.classList.add('fa-times');
             }
         });
+
+        // User Dropdown Toggle
+        const userMenuButton = document.getElementById('user-menu-button');
+        const userDropdown = document.getElementById('user-dropdown');
+
+        if (userMenuButton && userDropdown) {
+            userMenuButton.addEventListener('click', (event) => {
+                event.stopPropagation();
+                userDropdown.classList.toggle('hidden');
+            });
+
+            window.addEventListener('click', (event) => {
+                if (!userDropdown.classList.contains('hidden') &&
+                    !userMenuButton.contains(event.target) &&
+                    !userDropdown.contains(event.target))
+                {
+                    userDropdown.classList.add('hidden');
+                }
+            });
+        }
     </script>
 </body>
-
 </html>
