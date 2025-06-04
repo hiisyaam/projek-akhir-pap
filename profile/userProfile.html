@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Pengguna - CyberAware</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100..900;1,100..900&family=Rubik+Mono+One&family=Victor+Mono:ital,wght@0,100..700;1,100..700&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="../css/global.css">
+    <style>
+        .icon-filter {
+            filter: invert(79%) sepia(26%) saturate(5436%) hue-rotate(211deg) brightness(98%) contrast(93%);
+        }
+    </style>
+</head>
+
+<body class="bg-cyber-dark text-white overflow-x-hidden flex flex-col min-h-screen has-fixed-header">
+
+    <header class="fixed top-0 left-0 right-0 z-50 bg-cyber-nav/95 backdrop-blur-sm">
+        <nav class="container mx-auto px-4 lg:px-6 py-4 flex justify-between items-center">
+            <a href="../index.html#hero" class="cyberaware">CYBERAWARE</a>
+
+            <div class="hidden lg:flex items-center space-x-8">
+                <a href="../index.html#hero" class="text-white hover:text-violet-300 transition-colors">Beranda</a>
+                <a href="../index.html#visi-misi" class="text-white hover:text-violet-300 transition-colors">Tentang
+                    Kami</a>
+                <a href="../index.html#fitur-kami"
+                    class="text-white hover:text-violet-300 transition-colors">Layanan</a>
+                <a href="../kontak/contactPage.html"
+                    class="text-white hover:text-violet-300 transition-colors">Kontak</a>
+            </div>
+
+            <div class="hidden lg:flex items-center space-x-4" id="nav-auth-static-placeholder">
+                <div class="relative">
+                    <button id="user-menu-button" title="User Profile"
+                        class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:opacity-80 transition-opacity focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-cyber-nav focus:ring-violet-500 overflow-hidden">
+                        <img src="../assets/Male User.svg" alt="User Profile" class="w-full h-full object-cover">
+                    </button>
+
+                    <div id="user-dropdown"
+                        class="absolute top-full right-0 mt-2 w-48 bg-cyber-card rounded-md shadow-lg overflow-hidden hidden z-50 border border-gray-700/50">
+                        <div class="px-4 py-3 text-center text-xs text-white font-medium truncate">
+                            denji@example.com </div>
+                        <div class="text-xs font-medium">
+                            <a href="userProfile.html"
+                                class="flex items-center px-4 py-3 text-white hover:bg-gray-700/50 border-t border-gray-700/50 transition-colors">
+                                <img src="../assets/user.svg" alt="Account" class="w-5 h-5 mr-3"> Detail Akun
+                            </a>
+                            <a href="../kontak/contactPage.html"
+                                class="flex items-center px-4 py-3 text-white hover:bg-gray-700/50 border-t border-gray-700/50 transition-colors">
+                                <img src="../assets/help.svg" alt="Help" class="w-5 h-5 mr-3"> Pusat Bantuan
+                            </a>
+                            <a href="#" id="logout-button-desktop" class
+                                class="flex items-center px-4 py-3 text-white hover:bg-gray-700/50 border-t border-gray-700/50 transition-colors">
+                                <img src="../assets/logout.svg" alt="Logout" class="w-5 h-5 mr-3"> Keluar
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="lg:hidden text-white focus:outline-none" id="menu-toggle">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </nav>
+
+        <div class="hidden lg:hidden bg-cyber-mobile-menu border-t border-gray-800/50 shadow-xl" id="mobile-menu">
+            <div class="container mx-auto">
+                <div class="py-4 px-4 space-y-6">
+                    <div class="grid grid-cols-1 gap-2">
+                        <a href="../index.html#hero"
+                            class="text-white py-3 px-4 rounded hover-bg-cyber-mobile-item transition-colors flex items-center">
+                            <i class="fas fa-home mr-3 w-5 text-center"></i> <span>Beranda</span>
+                        </a>
+                        <a href="../index.html#visi-misi"
+                            class="text-white py-3 px-4 rounded hover-bg-cyber-mobile-item transition-colors flex items-center">
+                            <i class="fas fa-info-circle mr-3 w-5 text-center"></i> <span>Tentang Kami</span>
+                        </a>
+                        <a href="../index.html#fitur-kami"
+                            class="text-white py-3 px-4 rounded hover-bg-cyber-mobile-item transition-colors flex items-center">
+                            <i class="fas fa-cogs mr-3 w-5 text-center"></i> <span>Layanan</span>
+                        </a>
+                        <a href="../kontak/contactPage.html"
+                            class="text-white py-3 px-4 rounded hover-bg-cyber-mobile-item transition-colors flex items-center">
+                            <i class="fas fa-envelope mr-3 w-5 text-center"></i> <span>Kontak</span>
+                        </a>
+                    </div>
+                    <div
+                        class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-3 pt-4 border-t border-gray-700">
+                        <a href="userProfile.html"
+                            class="px-4 py-3 border border-gray-600 rounded-md text-center hover:bg-white/10 transition-colors flex-1 flex items-center justify-center">
+                            <i class="fas fa-user mr-2"></i> Profil
+                        </a>
+                        <a href="#" id="logout-button-mobile"
+                            class="px-4 py-3 bg-red-600 text-white rounded-md text-center font-semibold hover:bg-red-700 transition-colors flex-1 flex items-center justify-center">
+                            <i class="fas fa-sign-out-alt mr-2"></i> Logout
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 lg:px-8 py-12 lg:py-20 flex-grow">
+        <div
+            class="max-w-4xl mx-auto flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-12 reveal-on-scroll">
+
+            <div
+                class="flex flex-col items-center text-center md:items-start md:text-left flex-shrink-0 w-full md:w-48">
+                <div
+                    class="w-32 h-32 sm:w-36 sm:h-36 bg-gray-600 rounded-full flex items-center justify-center mb-4 overflow-hidden shadow-lg">
+                    <img src="../assets/Male User.svg" alt="User Profile Picture" class="w-full h-full object-cover">
+                </div>
+                <h1 class="text-2xl sm:text-3xl font-semibold text-white break-words">Denji Okarun</h1>
+                <p class="text-md sm:text-lg text-gray-400 break-all">denji@example.com</p>
+            </div>
+
+            <div class="bg-cyber-card rounded-2xl p-6 md:p-8 w-full shadow-xl reveal-on-scroll slide-left">
+                <h2 class="text-xl font-semibold text-white mb-6 border-b border-gray-700/50 pb-3">Detail Akun</h2>
+                <div class="flex flex-col sm:flex-row gap-6">
+                    <div class="flex-1 space-y-5">
+                        <div>
+                            <h3 class="text-xs text-gray-400 uppercase tracking-wider mb-1">Nama Lengkap</h3>
+                            <p class="text-base font-medium text-white">Denji Okarun</p>
+                        </div>
+                        <div>
+                            <h3 class="text-xs text-gray-400 uppercase tracking-wider mb-1">Email Terverifikasi</h3>
+                            <p class="text-base font-medium text-white flex items-center">
+                                denji@example.com
+                                <img src="../assets/check.svg" alt="Verified"
+                                    class="w-5 h-5 ml-2 text-green-400 icon-filter">
+                            </p>
+                        </div>
+                        <div>
+                            <p class="text-xs text-gray-400">Akun terhubung dengan Google</p>
+                        </div>
+                    </div>
+
+                    <div class="w-full h-px sm:w-px sm:h-auto bg-gray-600/50 my-4 sm:my-0 sm:mx-6"></div>
+
+                    <div class="flex-shrink-0">
+                        <h3 class="text-xs text-gray-400 uppercase tracking-wider mb-2">Pengaturan Akun</h3>
+                        <div class="space-y-2">
+                            <a href="#"
+                                class="block text-sm text-violet-300 hover:text-violet-200 transition-colors">Ubah
+                                Password</a>
+                            <a href="#"
+                                class="block text-sm text-violet-300 hover:text-violet-200 transition-colors">Kelola
+                                Notifikasi</a>
+                            <a href="#" id="logout-button-content"
+                                class="block text-sm text-red-400 hover:text-red-300 transition-colors logout-button">
+                                Keluar dari Akun
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-8 border-t border-gray-700/50 pt-6 text-center">
+                    <button
+                        class="px-6 py-2 bg-violet-600 hover:bg-violet-700 text-white rounded-md font-medium transition-colors">
+                        Simpan Perubahan
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-cyber-card py-12 md:px-16 px-7 rounded mt-auto reveal-on-scroll">
+        <div class="container mx-auto">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10 mb-12">
+                <div class="lg:col-span-2 text-left ">
+                    <a href="../index.html#hero" class="cyberaware md:text-lg mb-2 inline-block">CYBERAWARE</a>
+                    <h3 class="text-lg font-semibold text-slate-100 mb-4">
+                        Lindungi Dirimu di Dunia Digital
+                    </h3>
+                    <p class="text-slate-100 text-sm max-w-md">
+                        Dedicated to delivering innovative solutions that empower everyone to thrive safely in an
+                        ever-changing digital world.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="font-semibold uppercase tracking-widest text-sm mb-4 text-left text-indigo-300">
+                        Quick Links
+                    </h4>
+                    <ul class="space-y-2 text-slate-500 text-sm text-left">
+                        <li><a href="../index.html#hero" class="hover:text-white transition-colors">Home</a></li>
+                        <li><a href="../index.html#visi-misi" class="hover:text-white transition-colors">About us</a>
+                        </li>
+                        <li><a href="../index.html#fitur-kami" class="hover:text-white transition-colors">Services</a>
+                        </li>
+                        <li><a href="../index.html#tahukah-anda"
+                                class="hover:text-white transition-colors">Statistics</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold uppercase tracking-widest text-sm mb-4 text-left text-indigo-300">
+                        Explore
+                    </h4>
+                    <ul class="space-y-2 text-slate-500 text-sm text-left">
+                        <li><a href="#" class="hover:text-white transition-colors">Our Story</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Meet the Team</a></li>
+                        <li><a href="../berita/list_berita.html" class="hover:text-white transition-colors">Berita</a>
+                        </li>
+                        <li><a href="../kontak/contactPage.html" class="hover:text-white transition-colors">Contact
+                                Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold uppercase tracking-widest text-sm mb-4 text-left text-indigo-300">
+                        Support
+                    </h4>
+                    <ul class="space-y-2 text-slate-500 text-sm text-left">
+                        <li><a href="../kontak/contactPage.html" class="hover:text-white transition-colors">Help
+                                Center</a></li>
+                        <li><a href="../detector/detector.html" class="hover:text-white transition-colors">Report an
+                                Issue</a></li>
+                        <li><a href="../dokumentasi/dokumentasiPage.html"
+                                class="hover:text-white transition-colors">Documentation</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div
+                class="border-t border-gray-700/50 pt-8 flex flex-col sm:flex-row justify-between items-start sm:items-center">
+                <p class="text-sm text-slate-400 mb-6 sm:mb-0 text-left">
+                    © 2025 CyberAware. Dibuat oleh Mr. Anomali
+                </p>
+                <div class="flex items-center gap-4 justify-start sm:justify-center">
+                    <a href="#"
+                        class="bg-[#1a1a2e] hover:bg-indigo-900/40 transition-colors w-8 h-8 rounded-full flex items-center justify-center">
+                        <i class="fab fa-facebook-f text-white text-sm"></i>
+                    </a>
+                    <a href="#"
+                        class="bg-[#1a1a2e] hover:bg-indigo-900/40 transition-colors w-8 h-8 rounded-full flex items-center justify-center">
+                        <i class="fab fa-twitter text-white text-sm"></i>
+                    </a>
+                    <a href="#"
+                        class="bg-[#1a1a2e] hover:bg-indigo-900/40 transition-colors w-8 h-8 rounded-full flex items-center justify-center">
+                        <i class="fab fa-instagram text-white text-sm"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main-global.js"></script>
+</body>
+
+</html>
