@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detector</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100..900;1,100..900&family=Rubik+Mono+One&family=Victor+Mono:ital,wght@0,100..700;1,100..700&display=swap"
+        rel="stylesheet" />
+    <style>
+        body {
+            background-color: #111125;
+            color: white;
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .cyberaware {
+            text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+            font-family: "Rubik Mono One", sans-serif;
+            font-size: 32px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+            background: linear-gradient(90deg,
+                    #5a4fcf 10%,
+                    #5a4fcf 29.62%,
+                    #aba4f5 59.25%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .font-rubik-one {
+            font-family: "Rubik Mono One", sans-serif;
+        }
+
+        .text-shadow-custom {
+            text-shadow: 0px 3px 6px rgba(90, 79, 207, 0.4);
+        }
+
+        @media (max-width: 640px) {
+            .text-xs-center {
+                text-align: center;
+            }
+
+            .cyberaware {
+                font-size: 24px;
+            }
+
+            .detector-heading {
+                font-size: 2.5rem;
+            }
+        }
+
+        .bg-cyber-dark {
+            background-color: #111125;
+        }
+
+        .bg-cyber-nav {
+            background-color: #1a1a2e;
+        }
+
+        .bg-cyber-card {
+            background-color: #2d2d44;
+        }
+
+        .bg-cyber-mobile-menu {
+            background-color: #1d1d35;
+        }
+
+        .hover-bg-cyber-mobile-item:hover {
+            background-color: #2a2a40;
+        }
+
+        body {
+            padding-top: 72px;
+        }
+
+        @media (min-width: 1024px) {
+            body {
+                padding-top: 76px;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-cyber-dark text-white overflow-x-hidden">
+
+    <header class="fixed top-0 left-0 right-0 z-50 bg-cyber-nav/95 backdrop-blur-sm">
+        <nav class="container mx-auto px-4 lg:px-6 py-4 flex justify-between items-center">
+            <a href="#" class="cyberaware">CYBERAWARE</a>
+
+            <div class="hidden lg:flex items-center space-x-8">
+                <a href="#" class="text-white hover:text-violet-300 transition-colors">Beranda</a>
+                <a href="#" class="text-white hover:text-violet-300 transition-colors">Tentang Kami</a>
+                <a href="#" class="text-white hover:text-violet-300 transition-colors">Layanan</a>
+                <a href="#" class="text-white hover:text-violet-300 transition-colors">Kontak</a>
+            </div>
+
+            <div class="hidden lg:flex items-center space-x-4">
+                <a href="#" class="px-4 py-2 rounded text-white hover:text-violet-300 transition-colors">Login</a>
+                <a href="#"
+                    class="px-4 py-2 bg-violet-600 text-white rounded-md flex items-center space-x-1 hover:bg-violet-700 transition-colors">
+                    <span class="font-medium">Sign up</span>
+                    <i class="fas fa-chevron-right text-xs"></i>
+                </a>
+            </div>
+
+            <button class="lg:hidden text-white focus:outline-none" id="menu-toggle">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </nav>
+
+        <div class="hidden lg:hidden bg-cyber-mobile-menu border-t border-gray-800/50 shadow-xl" id="mobile-menu">
+            <div class="container mx-auto">
+                <div class="py-4 px-4 space-y-6">
+                    <div class="grid grid-cols-1 gap-2">
+                        <a href="#"
+                            class="text-white py-3 px-4 rounded hover-bg-cyber-mobile-item transition-colors flex items-center">
+                            <i class="fas fa-home mr-3 w-5 text-center"></i>
+                            <span>Beranda</span>
+                        </a>
+                        <a href="#"
+                            class="text-white py-3 px-4 rounded hover-bg-cyber-mobile-item transition-colors flex items-center">
+                            <i class="fas fa-info-circle mr-3 w-5 text-center"></i>
+                            <span>Tentang Kami</span>
+                        </a>
+                        <a href="#"
+                            class="text-white py-3 px-4 rounded hover-bg-cyber-mobile-item transition-colors flex items-center">
+                            <i class="fas fa-cogs mr-3 w-5 text-center"></i>
+                            <span>Layanan</span>
+                        </a>
+                        <a href="#"
+                            class="text-white py-3 px-4 rounded hover-bg-cyber-mobile-item transition-colors flex items-center">
+                            <i class="fas fa-envelope mr-3 w-5 text-center"></i>
+                            <span>Kontak</span>
+                        </a>
+                    </div>
+
+                    <div
+                        class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-3 pt-4 border-t border-gray-700">
+                        <a href="#"
+                            class="px-4 py-3 border border-gray-600 rounded-md text-center hover:bg-white/10 transition-colors flex-1">
+                            Login
+                        </a>
+                        <a href="#"
+                            class="px-4 py-3 bg-violet-600 text-white rounded-md text-center font-semibold hover:bg-violet-700 transition-colors flex-1">
+                            Sign up
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow container mx-auto px-6 lg:px-24 py-16 lg:py-24 flex flex-col items-center">
+        <p class="text-base text-gray-300 text-center max-w-2xl mb-16">
+            Menganalisis file, domain, IP, dan URL yang mencurigakan untuk mendeteksi malware dan pelanggaran lainnya,
+            dan secara otomatis membagikannya dengan komunitas keamanan.
+        </p>
+
+
+        <div class="max-w-4xl mx-auto">
+            <div class="flex justify-center items-center gap-4 sm:gap-8 md:gap-16 text-sm sm:text-base lg:text-lg font-medium border-b border-gray-700 mb-6"
+                id="tab-buttons">
+                <button id="tab-file"
+                    class="tab-btn py-3 px-2 text-white border-b-2 border-transparent hover:text-violet-300 hover:border-violet-300 transition-all cursor-pointer whitespace-nowrap">
+                    File
+                </button>
+                <button id="tab-url"
+                    class="tab-btn py-3 px-2 text-violet-300 border-b-2 border-violet-300 font-semibold cursor-pointer active-tab whitespace-nowrap">
+                    URL
+                </button>
+                <button id="tab-search"
+                    class="tab-btn py-3 px-2 text-white border-b-2 border-transparent hover:text-violet-300 hover:border-violet-300 transition-all cursor-pointer whitespace-nowrap">
+                    Search
+                </button>
+            </div>
+
+            <div class="w-full">
+                <div id="tab-content-file" class="tab-content hidden">
+                    <div class="flex flex-col items-center justify-center p-6 sm:p-8">
+                        <div class="mb-6">
+                            <svg class="w-12 h-15 sm:w-16 sm:h-20 lg:w-20 lg:h-24" viewBox="0 0 69 85" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M42.75 1.25V17.75C42.75 19.938 43.6192 22.0365 45.1664 23.5836C46.7135 25.1308 48.812 26 51 26H67.5M34.5 42.5V67.25M34.5 42.5L46.875 54.875M34.5 42.5L22.125 54.875M46.875 1.25H9.75C7.56196 1.25 5.46354 2.11919 3.91637 3.66637C2.36919 5.21354 1.5 7.31196 1.5 9.5V75.5C1.5 77.688 2.36919 79.7865 3.91637 81.3336C5.46354 82.8808 7.56196 83.75 9.75 83.75H59.25C61.438 83.75 63.5365 82.8808 65.0836 81.3336C66.6308 79.7865 67.5 77.688 67.5 75.5V21.875L46.875 1.25Z"
+                                    stroke="#ABA4F5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </div>
+
+                        <div class="w-full max-w-md">
+                            <div class="file-drop-zone rounded-lg p-6 sm:p-8 text-center cursor-pointer"
+                                id="file-drop-zone">
+                                <p class="text-gray-400 mb-4 text-sm sm:text-base">
+                                    Klik untuk memilih file atau seret file ke sini
+                                </p>
+                                <input type="file" id="file-input" class="hidden" multiple
+                                    accept=".pdf,.doc,.docx,.txt,.jpg,.jpeg,.png">
+                                <button type="button" onclick="document.getElementById('file-input').click()"
+                                    class="bg-violet-600 hover:bg-violet-700 px-4 py-2 rounded-lg text-sm font-medium transition-colors">
+                                    Pilih File
+                                </button>
+                            </div>
+
+                            <div id="selected-files" class="mt-4 space-y-2"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="tab-content-url" class="tab-content">
+                    <div class="flex flex-col items-center justify-center p-6 sm:p-8 text-center">
+                        <div class="mb-6">
+                            <svg width="90" height="90" viewBox="0 0 90 90" fill="none"
+                                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <rect width="90" height="90" fill="url(#pattern0_233_80)" />
+                                <defs>
+                                    <pattern id="pattern0_233_80" patternContentUnits="objectBoundingBox" width="1"
+                                        height="1">
+                                        <use xlink:href="#image0_233_80" transform="scale(0.0111111)" />
+                                    </pattern>
+                                    <image id="image0_233_80" width="90" height="90" preserveAspectRatio="none"
+                                        xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFoAAABaCAYAAAA4qEECAAAACXBIWXMAAAsTAAALEwEAmpwYAAAGUklEQVR4nO1dS48VRRQuHXygKCZKTDQmKhqNG9es1YivGIkLkWg0EUVZaOIPmI0JC0UDKHGUcPWe6jvJqVEImpG4mRWIGNgBA1ETcRQURJl7zr1igm1O9zDy6Lr9uN33Ud1f0slkHl3V360+dV5fjVIVKlSoUKFChQoVCgDW23cZzWtRUwOB96Pmk0bTP3LJ1+H3qCG/Mz7eXlrEHJzF1JS/AL3mKtT0jdHsp7qAdhtorUT0R/r9HAMNrNNyo+lwaoIvvaax3nyo388zcKjV/KsRaEMOBF+0wrm+Y8y/pt/PNxBAnF2Cmr7LneS5CzXtlTFUmdFo8C3ymhdF8jzZwIdKS3YjIDmBPQY6ajR9MOHRoxPe7L0AJ6+XS75GoMfkZ+HvJFnZ/kJVJjQazZuN5gMxxPyMwK8j+lcm8lTq9LzR9GNnwulDVRY0kpAMPIl4anHae2/fcuI61LQthuxHlOtoJDIXtH501L886xjyt0bTxs722mE/u5FsJb+dx1hCNgLtsNv91krlIhBnlyTwLtblOaZsmEbTjGWD3a1cA6K/MIGfvK6QsYFfiX5z6N8Jr32ncgkI/FE/SBaMjflXiPcSSbbHrypXMOHRw/0i+RwCPzvSfLCnXMDUlL+go4cB/E4v5mE0PR7tp/M+5QLQa67q4MKZbly4VPOA0/dYPugTygWgNZ9MM4j+ol7NI/Q+Ij2PM8qRyogf/crScz2dC55a7CzRRvNai138VWx3L+fitOnAsI7Xtw3wfEx4/ISzmyEC77eE2E/F/e3kBv8q+UAM8B9GExngsW7SmwZos7PuHQbV6ksfLi4aE5IlcxdByljeAYvRvEYNOwzQmaiH+/zT0zd2rhtGkBy+5rOZ5qF5jS0Ex3r7DjXsQE0c9YDiaqUleW5F/5XJ2wD6xeL57FIuwFhKSwiz96UmOVyB76bPSfOX1vt5rWeUC0DN+ywPuSI9yTwptjvN+FI86HDPA84k/o3mrRYTML+pSS0Qgb+IIXmnfBgpx36r4z3rtFy5AqzTixaijwtxxa1kXtfpnuLqKZcwPt6+XXb26I2o+abR/FWvSUZNe9K+HUMBo/lrm2vV85WsedrzZm9SLsJoXhHz8L2xyUBH8BO+VbkKRH/EFornsZLn2go6eReSkj0sLQ7KdaDXWmY0nc2bZAl84jyW0pD8f+6CjuRFclgeC8LqYxXJcQmiFCRLb/NndbofgZ8OqunAv8eboSFYyTbNCEruAujoXMS3FTW9IC5ckSSPj7duQ6AfUm6o0wNLclbNCIZumrhwK84PafMi2QB9n2o+mvYMrAuXl2YEZfV7rWX9IlkivoEMRqRiYTR/3C3B5kLbeLbbjS8DyQcNNB9QZdSMmIJJDpL2mnZJqnNgs3C90oyYlCQLpEHcAG8JgxyaMUCtoFIDfCLYhIE9ce0GvjLSjWakXvevFS/DaH4yaPIGPp4nyc4gEckhwauT9F3M5ZLfKCJBNLQoQjOCBSXthxZFaEZqBSXthxZFaEawWsnFa0Zq1UouXjNSq0guXjNSy4FkCUbEXVSuQM6oyN8m045uvIv5iA94iyqFZkTT+jT3m8w5QeREm2ycZkRWZVrNiNG0KS+S5z7oGeUCrPlkoKMiRk8t8dXRjYrZSA7m0VJOa0aAXkp7v9GwwtzOWn6KrIy4rBkxmn7KqhkxwLUsEZ/U+MqnGdG0KfM90V8Ukk1tA9Q0mt5LElZLITXyTXBhM7Q3qnR/CIjv+5fl4se7rRn5++6eF3o1/1Y6zUhab6PreWjHNSODQDSGCtVjTmtG+m06RoOjdeyFAHc0I5bNsFeJHFMWzYjNvUOg94se28TKGQa07yILEPg1W/hdpMjdlFAzstRekabVRYxpyqoZsSWVRAttU6xmhSmzZgR181nr6gLemdeGZCrNiD/SuSBLG3M4inL90DeB54EJr/lgR7sJPLmt9ucNmQ5XBdpeavXTxZCje2NW3YwcF5wkEzcm5114/LL16Mmyknxeu8HepM2Mcti1NDPKqj13ALaRs+KANnc4VKR85sLaAw18KJ6krq/p0pJ8QbcS0LdFkYyDrBnpNap/u9GHxpqcTMlBp3IXRUACFjkJXA6pjmsgN8OmGRlUyLFocn6y1PGkaBrkswO9yBBqRipUqFChQoUKFdSw4j+41IbFk+1ODQAAAABJRU5ErkJggg==" />
+                                </defs>
+                            </svg>
+
+                        </div>
+                        <div class="w-full max-w-2xl">
+                            <div class="mb-4">
+                                <p class="text-gray-400 mb-4 text-sm sm:text-base">Analisis URL yang mencurigakan</p>
+                                <input type="text" id="url-input"
+                                    placeholder="Cari informasi keamanan, malware, phishing..."
+                                    class="w-full h-12 sm:h-14 pl-4 sm:pl-6 pr-12 py-3 sm:py-4 bg-cyber-card rounded-lg text-white text-sm sm:text-base placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-violet-600 border border-gray-700 transition-all" />
+                            </div>
+
+                            <button type="button"
+                                class="w-full sm:w-auto bg-violet-600 hover:bg-violet-700 px-6 py-3 rounded-lg font-medium transition-colors">
+                                Scan URL
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="tab-content-search" class="tab-content hidden">
+                    <div class="flex flex-col items-center justify-center p-6 sm:p-8 text-center">
+                        <div class="mb-6">
+                            <svg width="90" height="90" viewBox="0 0 90 90" fill="none"
+                                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <rect width="90" height="90" fill="url(#pattern0_233_81)" />
+                                <defs>
+                                    <pattern id="pattern0_233_81" patternContentUnits="objectBoundingBox" width="1"
+                                        height="1">
+                                        <use xlink:href="#image0_233_81" transform="scale(0.0111111)" />
+                                    </pattern>
+                                    <image id="image0_233_81" width="90" height="90" preserveAspectRatio="none"
+                                        xlink:href="data:image/png;base64,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" />
+                                </defs>
+                            </svg>
+
+
+                        </div>
+                        <div class="w-full max-w-2xl">
+                            <div class="mb-4">
+                                <div class="relative">
+                                    <p class="text-gray-400 mb-4 text-sm sm:text-base">Cari hash, domain, alamat IP,
+                                        URL, atau dapatkan konteks tambahan dan visibilitas lanskap ancaman dengan
+                                        penawaran Threat Intelligence kami.</p>
+                                    <input type="text" id="search-input"
+                                        placeholder="Cari informasi keamanan, malware, phishing..."
+                                        class="w-full h-12 sm:h-14 pl-4 sm:pl-6 pr-12 py-3 sm:py-4 bg-cyber-card rounded-lg text-white text-sm sm:text-base placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-violet-600 border border-gray-700 transition-all" />
+                                </div>
+                            </div>
+
+                            <button type="button"
+                                class="w-full sm:w-auto bg-violet-600 hover:bg-violet-700 px-6 py-3 rounded-lg font-medium transition-colors">
+                                Search
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <p class="text-sm text-gray-400 text-center max-w-xl my-4">
+            Dengan mengirimkan data di atas, Anda menyetujui <a href="#"
+                class="text-violet-400 hover:underline">Ketentuan Layanan</a> dan <a href="#"
+                class="text-violet-400 hover:underline">Pemberitahuan Privasi kami</a>, dan untuk berbagi pengiriman
+            Sampel Anda dengan komunitas keamanan. Mohon untuk tidak mengirimkan informasi pribadi apa pun; kami tidak
+            bertanggung jawab atas isi kiriman Anda. <a href="#" class="text-violet-400 hover:underline">Pelajari lebih
+                lanjut.</a>
+        </p>
+    </main>
+
+    <footer class="bg-cyber-card py-12 md:px-16 px-7 rounded">
+        <div class="container mx-auto">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10 mb-12">
+                <div class="lg:col-span-2 text-left ">
+                    <h2 class="text-2xl font-bold text-indigo-400 cyberaware md:text-sm mb-2">
+                        CYBERAWARE
+                    </h2>
+
+                    <h3 class="text-lg font-semibold text-slate-100 mb-4">
+                        Lindungi Dirimu di Dunia Digital
+                    </h3>
+                    <p class="text-slate-100 text-sm max-w-md">
+                        We are dedicated to delivering innovative solutions that empower
+                        businesses to thrive in an ever-changing world.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="font-semibold uppercase tracking-widest text-sm mb-4 text-left text-indigo-300">
+                        Quick Links
+                    </h4>
+                    <ul class="space-y-2 text-slate-500 text-sm text-left">
+                        <li><a href="#" class="hover:text-white transition-colors">Home</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">About us</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Services</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Features</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold uppercase tracking-widest text-sm mb-4 text-left text-indigo-300">
+                        Explore
+                    </h4>
+                    <ul class="space-y-2 text-slate-500 text-sm text-left">
+                        <li><a href="#" class="hover:text-white transition-colors">Our Story</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Meet the Team</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Careers</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Press & Media</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold uppercase tracking-widest text-sm mb-4 text-left text-indigo-300">
+                        Support
+                    </h4>
+                    <ul class="space-y-2 text-slate-500 text-sm text-left">
+                        <li><a href="#" class="hover:text-white transition-colors">Help Center</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Report an Issue</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Documentation</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Live Chat</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div
+                class="border-t border-gray-700/50 pt-8 flex flex-col sm:flex-row justify-between items-start sm:items-center">
+                <p class="text-sm text-slate-400 mb-6 sm:mb-0 text-left">
+                    © 2025 CyberAware. Dibuat oleh Mr. Anomali
+                </p>
+                <div class="flex items-center gap-4 justify-start sm:justify-center">
+                    <a href="#"
+                        class="bg-[#1a1a2e] hover:bg-indigo-900/40 transition-colors w-8 h-8 rounded-full flex items-center justify-center">
+                        <i class="fab fa-facebook-f text-white text-sm"></i>
+                    </a>
+                    <a href="#"
+                        class="bg-[#1a1a2e] hover:bg-indigo-900/40 transition-colors w-8 h-8 rounded-full flex items-center justify-center">
+                        <i class="fab fa-twitter text-white text-sm"></i>
+                    </a>
+                    <a href="#"
+                        class="bg-[#1a1a2e] hover:bg-indigo-900/40 transition-colors w-8 h-8 rounded-full flex items-center justify-center">
+                        <i class="fab fa-instagram text-white text-sm"></i>
+                    </a>
+                    <a href="#"
+                        class="bg-[#1a1a2e] hover:bg-indigo-900/40 transition-colors w-8 h-8 rounded-full flex items-center justify-center">
+                        <i class="fab fa-linkedin-in text-white text-sm"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="detector.js"></script>
+
+</body>
+
+</html>
