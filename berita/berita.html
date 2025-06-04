@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detail Berita - CyberAware</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rubik+Mono+One&family=Victor+Mono:ital,wght@0,100..700;1,100..700&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="../css/global.css">
+    <style>
+
+        .article-image-container {
+            background: linear-gradient(135deg, rgba(79, 70, 229, 0.3) 0%, rgba(165, 180, 252, 0.3) 100%); /* Subtle gradient background */
+        }
+
+        .article-content {
+            line-height: 1.8;
+        }
+
+        .article-content p {
+            margin-bottom: 1.5rem;
+        }
+        .article-content h2 {
+            font-size: 1.5rem;
+            line-height: 2rem;
+            font-weight: 700;
+            color: #e5e7eb;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+        .article-content ul {
+            list-style-type: disc;
+            margin-left: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .article-content li {
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+
+<body class="bg-cyber-dark text-white overflow-x-hidden has-fixed-header">
+    <header class="fixed top-0 left-0 right-0 z-50 bg-cyber-nav/95 backdrop-blur-sm">
+        <nav class="container mx-auto px-4 lg:px-6 py-4 flex justify-between items-center">
+            <a href="../index.html#hero" class="cyberaware">CYBERAWARE</a>
+
+            <div class="hidden lg:flex items-center space-x-8">
+                <a href="../index.html#hero" class="text-white hover:text-violet-300 transition-colors">Beranda</a>
+                <a href="../index.html#visi-misi" class="text-white hover:text-violet-300 transition-colors">Tentang Kami</a>
+                <a href="../index.html#fitur-kami" class="text-white hover:text-violet-300 transition-colors">Layanan</a>
+                <a href="../kontak/contactPage.html" class="text-white hover:text-violet-300 transition-colors">Kontak</a>
+            </div>
+
+            <div class="hidden lg:flex items-center space-x-4" id="nav-auth-links">
+                </div>
+
+            <button class="lg:hidden text-white focus:outline-none" id="menu-toggle">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </nav>
+
+        <div class="hidden lg:hidden bg-cyber-mobile-menu border-t border-gray-800/50 shadow-xl" id="mobile-menu">
+            <div class="container mx-auto">
+                <div class="py-4 px-4 space-y-6">
+                    <div class="grid grid-cols-1 gap-2">
+                        <a href="../index.html#hero" class="text-white py-3 px-4 rounded hover-bg-cyber-mobile-item transition-colors flex items-center">
+                            <i class="fas fa-home mr-3 w-5 text-center"></i> Beranda
+                        </a>
+                        <a href="../index.html#visi-misi" class="text-white py-3 px-4 rounded hover-bg-cyber-mobile-item transition-colors flex items-center">
+                            <i class="fas fa-info-circle mr-3 w-5 text-center"></i> Tentang Kami
+                        </a>
+                        <a href="../index.html#fitur-kami" class="text-white py-3 px-4 rounded hover-bg-cyber-mobile-item transition-colors flex items-center">
+                            <i class="fas fa-cogs mr-3 w-5 text-center"></i> Layanan
+                        </a>
+                        <a href="../kontak/contactPage.html" class="text-white py-3 px-4 rounded hover-bg-cyber-mobile-item transition-colors flex items-center">
+                            <i class="fas fa-envelope mr-3 w-5 text-center"></i> Kontak
+                        </a>
+                        <a href="list_berita.html" class="text-white py-3 px-4 rounded hover-bg-cyber-mobile-item transition-colors flex items-center">
+                            <i class="fas fa-newspaper mr-3 w-5 text-center"></i> Berita
+                        </a>
+                    </div>
+                     <div id="mobile-auth-links" class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-3 pt-4 border-t border-gray-700">
+                        </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-8">
+        <section class="container mx-auto px-4 max-w-3xl mb-16 reveal-on-scroll">
+            <div class="text-left mb-8 mt-0"> <a href="list_berita.html" class="text-sm text-violet-400 hover:text-violet-300 uppercase tracking-wide mb-2 inline-flex items-center transition-colors">
+                    <i class="fas fa-arrow-left mr-2"></i> Kembali ke Daftar Berita
+                </a>
+                <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3 mt-4 leading-tight">
+                    Penipuan Online Meningkat: Waspada Modus Baru!
+                </h1>
+                <div class="flex items-center text-gray-400 text-sm md:text-base">
+                    <span class="mr-4"><i class="fas fa-user mr-1"></i> Tim CyberAware</span>
+                    <span><i class="fas fa-calendar-alt mr-1"></i> 04 Juni 2025</span>
+                </div>
+            </div>
+
+            <div class="article-image-container rounded-lg h-64 sm:h-80 md:h-96 mx-auto w-full flex items-center justify-center overflow-hidden mb-8 shadow-xl reveal-on-scroll">
+                <img src="../assets/cyber-security-concept-digital-art.jpg" alt="Gambar Artikel Berita"
+                    class="w-full h-full object-cover" />
+            </div>
+
+            <article class="article-content text-gray-300 text-base md:text-lg bg-cyber-card p-6 md:p-8 rounded-lg shadow-xl reveal-on-scroll">
+                <p>
+                    Kasus kejahatan siber, khususnya penipuan online, menunjukkan peningkatan yang signifikan dalam beberapa waktu terakhir. Berdasarkan data terbaru, persentase penipuan online mencapai angka yang mengkhawatirkan, meningkat drastis dari periode sebelumnya. Hal ini menuntut kewaspadaan ekstra dari seluruh lapisan masyarakat agar tidak menjadi korban.
+                </p>
+                <p>
+                    Modus operandi yang digunakan para pelaku kejahatan siber pun semakin beragam dan canggih. Mulai dari phishing yang menargetkan data kredensial perbankan, social engineering melalui telepon atau pesan singkat, hingga penyebaran malware melalui aplikasi tidak resmi. Para pelaku seringkali memanfaatkan kelengahan dan kurangnya literasi digital calon korban.
+                </p>
+
+                <h2>Kenali Ciri-ciri Penipuan Online:</h2>
+                <ul>
+                    <li>Tawaran hadiah atau keuntungan yang tidak masuk akal.</li>
+                    <li>Permintaan data pribadi atau kredensial (PIN, OTP, password) melalui tautan atau formulir yang mencurigakan.</li>
+                    <li>Penggunaan tata bahasa yang buruk atau tidak profesional dalam pesan.</li>
+                    <li>Desakan untuk segera melakukan transfer sejumlah uang atau mengklik tautan tertentu.</li>
+                    <li>Alamat website (URL) yang berbeda tipis dari situs resmi atau menggunakan domain gratis.</li>
+                </ul>
+
+                <h2>Langkah Pencegahan:</h2>
+                <p>
+                    Untuk terhindar dari jerat penipuan online, ada beberapa langkah preventif yang dapat dilakukan. Pertama, jangan mudah percaya dengan iming-iming hadiah besar atau tawaran yang terlalu bagus untuk menjadi kenyataan. Kedua, selalu verifikasi keaslian informasi atau permintaan yang diterima, terutama jika menyangkut data finansial atau pribadi. Jangan pernah membagikan kode OTP atau password kepada siapapun.
+                </p>
+                <p>
+                    Selain itu, pastikan perangkat Anda terlindungi dengan perangkat lunak keamanan yang terbarui dan hindari mengunduh aplikasi dari sumber yang tidak terpercaya. Tingkatkan literasi digital Anda dengan terus mengikuti perkembangan informasi mengenai modus-modus kejahatan siber terkini. Jika Anda ragu atau menemukan aktivitas mencurigakan, jangan ragu untuk melaporkannya kepada pihak berwenang atau platform terkait.
+                </p>
+                <p>
+                    Dengan kewaspadaan dan pengetahuan yang cukup, kita dapat bersama-sama memerangi kejahatan siber dan menciptakan ruang digital yang lebih aman bagi semua.
+                </p>
+            </article>
+        </section>
+    </main>
+
+    <footer class="bg-cyber-card py-12 md:px-16 px-7 rounded mt-12 reveal-on-scroll">
+        <div class="container mx-auto">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10 mb-12">
+                <div class="lg:col-span-2 text-left">
+                     <a href="../index.html#hero" class="cyberaware md:text-lg mb-2 inline-block">CYBERAWARE</a>
+                    <h3 class="text-lg font-semibold text-slate-100 mb-4">
+                        Lindungi Dirimu di Dunia Digital
+                    </h3>
+                    <p class="text-slate-100 text-sm max-w-md">
+                       Dedicated to delivering innovative solutions that empower everyone
+                        to thrive safely in an ever-changing digital world.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-semibold uppercase tracking-widest text-sm mb-4 text-left text-indigo-300">
+                        Quick Links
+                    </h4>
+                    <ul class="space-y-2 text-slate-500 text-sm text-left">
+                        <li><a href="../index.html#hero" class="hover:text-white transition-colors">Home</a></li>
+                        <li><a href="../index.html#visi-misi" class="hover:text-white transition-colors">About us</a></li>
+                        <li><a href="../index.html#fitur-kami" class="hover:text-white transition-colors">Services</a></li>
+                        <li><a href="../index.html#tahukah-anda" class="hover:text-white transition-colors">Statistics</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold uppercase tracking-widest text-sm mb-4 text-left text-indigo-300">
+                        Explore
+                    </h4>
+                    <ul class="space-y-2 text-slate-500 text-sm text-left">
+                        <li><a href="#" class="hover:text-white transition-colors">Our Story</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Meet the Team</a></li>
+                        <li><a href="../kontak/contactPage.html" class="hover:text-white transition-colors">Contact Us</a></li>
+                        <li><a href="list_berita.html" class="hover:text-white transition-colors">Berita</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold uppercase tracking-widest text-sm mb-4 text-left text-indigo-300">
+                        Support
+                    </h4>
+                    <ul class="space-y-2 text-slate-500 text-sm text-left">
+                        <li><a href="../kontak/contactPage.html" class="hover:text-white transition-colors">Help Center</a></li>
+                        <li><a href="../detector/detectorPage.html" class="hover:text-white transition-colors">Report an Issue</a></li>
+                        <li><a href="../dokumentasi/dokumentasiPage.html" class="hover:text-white transition-colors">Documentation</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700/50 pt-8 flex flex-col sm:flex-row justify-between items-start sm:items-center">
+                <p class="text-sm text-slate-400 mb-6 sm:mb-0 text-left">
+                    © 2025 CyberAware. Dibuat oleh Mr. Anomali
+                </p>
+                <div class="flex items-center gap-4 justify-start sm:justify-center">
+                    <a href="#" class="bg-[#1a1a2e] hover:bg-indigo-900/40 transition-colors w-8 h-8 rounded-full flex items-center justify-center"><i class="fab fa-facebook-f text-white text-sm"></i></a>
+                    <a href="#" class="bg-[#1a1a2e] hover:bg-indigo-900/40 transition-colors w-8 h-8 rounded-full flex items-center justify-center"><i class="fab fa-twitter text-white text-sm"></i></a>
+                    <a href="#" class="bg-[#1a1a2e] hover:bg-indigo-900/40 transition-colors w-8 h-8 rounded-full flex items-center justify-center"><i class="fab fa-instagram text-white text-sm"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="../js/main-global.js"></script>
+</body>
+</html>
