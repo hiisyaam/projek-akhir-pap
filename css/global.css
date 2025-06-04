@@ -1,0 +1,115 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: #111125;
+  color: white;
+  font-family: "Inter", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+body.has-fixed-header {
+  padding-top: 72px;
+}
+
+@media (min-width: 1024px) {
+  body.has-fixed-header {
+    padding-top: 76px;
+  }
+}
+
+.cyberaware {
+  text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+  font-family: "Rubik Mono One", sans-serif;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  background: linear-gradient(
+    90deg,
+    #5a4fcf 10%,
+    #5a4fcf 29.62%,
+    #aba4f5 59.25%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@media (max-width: 640px) {
+  .text-xs-center {
+    text-align: center;
+  }
+  .cyberaware {
+    font-size: 24px;
+  }
+  .detector-heading {
+    font-size: 2.5rem;
+  }
+}
+
+.bg-cyber-dark {
+  background-color: #111125;
+}
+.bg-cyber-nav {
+  background-color: #1a1a2e;
+}
+.bg-cyber-card {
+  background-color: #2d2d44;
+}
+.bg-cyber-mobile-menu {
+  background-color: #1d1d35;
+}
+.hover-bg-cyber-mobile-item:hover {
+  background-color: #2a2a40;
+}
+
+.font-rubik-one {
+  font-family: "Rubik Mono One", sans-serif;
+}
+.font-poppins {
+  font-family: "Poppins", sans-serif;
+}
+
+.text-shadow-custom {
+  text-shadow: 0px 3px 6px rgba(90, 79, 207, 0.4);
+}
+
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.reveal-on-scroll.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-on-scroll.fade-in {
+  transform: translateY(0);
+}
+.reveal-on-scroll.slide-left {
+  transform: translateX(-30px);
+}
+.reveal-on-scroll.slide-left.revealed {
+  transform: translateX(0);
+}
+.reveal-on-scroll.slide-right {
+  transform: translateX(30px);
+}
+.reveal-on-scroll.slide-right.revealed {
+  transform: translateX(0);
+}
+
+#testimonial-carousel .testimonial-slide {
+  transition: opacity 0.7s ease-in-out;
+}
+
+.auth-input {
+  @apply w-full h-10 bg-white/50 rounded-[10px] px-3 text-white placeholder-white/80 text-sm outline-none border border-white/70 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition duration-200 ease-in-out;
+}
+.auth-input-pr-10 {
+  @apply w-full h-10 bg-white/50 rounded-[10px] px-3 pr-10 text-white placeholder-white/80 text-sm outline-none border border-white/70 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition duration-200 ease-in-out;
+}
