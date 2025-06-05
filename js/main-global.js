@@ -234,7 +234,7 @@ function checkLoginStatusAndUpdateNav() {
     const navAuthLinksContainer = document.getElementById('nav-auth-links');
     const mobileAuthLinksContainer = document.getElementById('mobile-auth-links');
     let pathPrefix = getPathPrefix();
-    if (window.location.pathname.includes('/kontak/')) {
+    if (window.location.pathname.match(/\/(kontak|detector)/)) {
         pathPrefix = '../';
     }
     if (navAuthLinksContainer && mobileAuthLinksContainer) {
