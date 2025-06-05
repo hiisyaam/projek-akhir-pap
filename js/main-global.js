@@ -276,18 +276,18 @@ function checkLoginStatusAndUpdateNav() {
 
         } else {
             navAuthLinksContainer.innerHTML = `
-                <a href="${pathPrefix}login/loginPage.html" class="px-4 py-2 rounded text-white hover:text-violet-300 transition-colors">Login</a>
-                <a href="${pathPrefix}signUp/signUpPage.html"
+                <a href="../login/loginPage.html" class="px-4 py-2 rounded text-white hover:text-violet-300 transition-colors">Login</a>
+                <a href="../signUp/signUpPage.html"
                     class="btn-primary px-4 py-2 bg-violet-600 text-white rounded-md flex items-center space-x-1 hover:bg-violet-700 transition-colors">
                     <span class="font-medium">Sign up</span>
                     <i class="fas fa-chevron-right text-xs"></i>
                 </a>`;
             mobileAuthLinksContainer.innerHTML = `
-                <a href="${pathPrefix}login/loginPage.html"
+                <a href="../login/loginPage.html"
                     class="px-4 py-3 border border-gray-600 rounded-md text-center hover:bg-white/10 transition-colors flex-1">
                     Login
                 </a>
-                <a href="${pathPrefix}signUp/signUpPage.html"
+                <a href="../signUp/signUpPage.html"
                     class="px-4 py-3 bg-violet-600 text-white rounded-md text-center font-semibold hover:bg-violet-700 transition-colors flex-1">
                     Sign up
                 </a>`;

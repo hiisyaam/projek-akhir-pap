@@ -17,48 +17,79 @@
 <body class="has-fixed-header bg-cyber-dark text-white overflow-x-hidden flex flex-col min-h-screen">
     <header class="fixed top-0 left-0 right-0 z-50 bg-cyber-nav/95 backdrop-blur-sm">
         <nav class="container mx-auto px-4 lg:px-6 py-4 flex justify-between items-center">
-            <a href="../index.html#hero" class="cyberaware">CYBERAWARE</a> <div class="hidden lg:flex items-center space-x-8">
-                <a href="../index.html#hero" class="text-white hover:text-violet-300 transition-colors">Beranda</a> <a href="../index.html#visi-misi" class="text-white hover:text-violet-300 transition-colors">Tentang Kami</a> <a href="../index.html#fitur-kami" class="text-white hover:text-violet-300 transition-colors">Layanan</a> <a href="contactPage.html" class="text-white hover:text-violet-300 transition-colors">Kontak</a> </div>
+            <a href="#hero" class="cyberaware">CYBERAWARE</a>
+
+            <div class="hidden lg:flex items-center space-x-8">
+                <a href="#hero" class="text-white hover:text-violet-300 transition-colors">Beranda</a>
+                <a href="#fitur-kami" class="text-white hover:text-violet-300 transition-colors">Layanan</a>
+                <a href="#visi-misi" class="text-white hover:text-violet-300 transition-colors">Tentang Kami</a>
+                <a href="kontak/contactPage.html" class="text-white hover:text-violet-300 transition-colors">Kontak</a>
+            </div>
 
             <div class="hidden lg:flex items-center space-x-4" id="nav-auth-links">
-                 </div>
+                <div class="relative">
+                    <button id="user-menu-button" title="User Profile" class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:opacity-80 transition-opacity focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-cyber-nav focus:ring-violet-500 overflow-hidden">
+                        <img src="../assets/Male User.svg" alt="User Profile" class="w-full h-full object-cover">
+                    </button>
+                    <div id="user-dropdown" class="absolute top-full right-0 mt-2 w-52 bg-cyber-card rounded-md shadow-lg overflow-hidden hidden z-50 border border-gray-700/50">
+                        <div class="px-4 py-3 text-center text-xs text-white font-medium truncate">
+                            user@example.com
+                        </div>
+                        <div class="text-xs font-medium">
+                            <a href="profile/userProfile.html" class="flex items-center px-4 py-3 text-white hover:bg-gray-700/50 border-t border-gray-700/50 transition-colors">
+                                <img src="../assets/user.svg" alt="Account" class="w-5 h-5 mr-3 icon-filter-nav"> Detail Akun
+                            </a>
+                            <a href="kontak/contactPage.html" class="flex items-center px-4 py-3 text-white hover:bg-gray-700/50 border-t border-gray-700/50 transition-colors">
+                                <img src="../assets/help.svg" alt="Help" class="w-5 h-5 mr-3 icon-filter-nav"> Pusat Bantuan
+                            </a>
+                            <a href="#" id="logout-button-desktop" class="flex items-center px-4 py-3 text-white hover:bg-gray-700/50 border-t border-gray-700/50 transition-colors">
+                                <img src="../assets/logout.svg" alt="Logout" class="w-5 h-5 mr-3 icon-filter-nav"> Keluar
+                            </a>
+                        </div>
+                    </div>
+                 </div></div>
 
             <button class="lg:hidden text-white focus:outline-none" id="menu-toggle">
-                <i class="fas fa-bars text-xl"></i>
+                <i class="fas text-xl fa-bars"></i>
             </button>
         </nav>
 
-        <div class="hidden lg:hidden bg-cyber-mobile-menu border-t border-gray-800/50 shadow-xl" id="mobile-menu">
+        <div class="lg:hidden bg-cyber-mobile-menu border-t border-gray-800/50 shadow-xl hidden" id="mobile-menu">
             <div class="container mx-auto">
                 <div class="py-4 px-4 space-y-6">
                     <div class="grid grid-cols-1 gap-2">
-                        <a href="../index.html#hero" class="text-white py-3 px-4 rounded hover-bg-cyber-mobile-item transition-colors flex items-center">
+                        <a href="#hero" class="text-white py-3 px-4 rounded hover-bg-cyber-mobile-item transition-colors flex items-center">
                             <i class="fas fa-home mr-3 w-5 text-center"></i>
                             <span>Beranda</span>
                         </a>
-                        <a href="../index.html#visi-misi" class="text-white py-3 px-4 rounded hover-bg-cyber-mobile-item transition-colors flex items-center">
-                            <i class="fas fa-info-circle mr-3 w-5 text-center"></i>
-                            <span>Tentang Kami</span>
-                        </a>
-                        <a href="../index.html#fitur-kami" class="text-white py-3 px-4 rounded hover-bg-cyber-mobile-item transition-colors flex items-center">
+                        <a href="#fitur-kami" class="text-white py-3 px-4 rounded hover-bg-cyber-mobile-item transition-colors flex items-center">
                             <i class="fas fa-cogs mr-3 w-5 text-center"></i>
                             <span>Layanan</span>
                         </a>
-                        <a href="contactPage.html" class="text-white py-3 px-4 rounded hover-bg-cyber-mobile-item transition-colors flex items-center">
-                            <i class="fas fa-envelope mr-3 w-5 text-center"></i>
-                            <span>Kontak</span>
+                        <a href="#visi-misi" class="text-white py-3 px-4 rounded hover-bg-cyber-mobile-item transition-colors flex items-center">
+                            <i class="fas fa-info-circle mr-3 w-5 text-center"></i>
+                            <span>Tentang Kami</span>
                         </a>
+                        <a href="kontak/contactPage.html" class="text-white py-3 px-4 rounded hover-bg-cyber-mobile-item transition-colors flex items-center">
+                            <i class="fas fa-envelope mr-3 w-5 text-center"></i>
+                            <span>Kontak</span> </a>
                     </div>
-                    <div id="mobile-auth-links"
-                        class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-3 pt-4 border-t border-gray-700">
-                         </div>
+
+                    <div id="mobile-auth-links" class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-3 pt-4 border-t border-gray-700">
+                <a href="profile/userProfile.html" class="px-4 py-3 border border-gray-600 rounded-md text-center hover:bg-white/10 transition-colors flex-1 flex items-center justify-center">
+                    <i class="fas fa-user mr-2"></i> Profil
+                </a>
+                <a href="#" id="logout-button-mobile" class="px-4 py-3 bg-red-600 text-white rounded-md text-center font-semibold hover:bg-red-700 transition-colors flex-1 flex items-center justify-center">
+                     <i class="fas fa-sign-out-alt mr-2"></i> Keluar
+                </a></div>
                 </div>
             </div>
         </div>
     </header>
 
     <main class="flex-grow container mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 py-16 lg:py-24">
-        <section class="max-w-3xl mx-auto reveal-on-scroll"> <h1
+        <section class="max-w-3xl mx-auto reveal-on-scroll">
+            <h1
                 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tighter mb-6 md:text-center">
                 Hubungi Kami
             </h1>
@@ -178,6 +209,7 @@
             </div>
         </div>
     </footer>
-    <script src="../js/main-global.js"></script> <script src="../js/contactPage.js"></script> </body>
+    <script src="../js/main-global.js"></script>
+    <script src="../js/contactPage.js"></script> </body>
 
 </html>
