@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Our Course - CyberAware</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&family=Inter:wght@400;500;600;700;800&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+
+    <style>
+        /* =================================================================
+        GAYA KONSISTEN DARI HALAMAN DETECTOR
+        ================================================================== */
+        body {
+            background-color: #111125; /* bg-cyber-dark */
+            color: white;
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .cyberaware {
+            text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+            font-family: "Rubik Mono One", sans-serif;
+            font-size: 32px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+            background: linear-gradient(90deg, #5a4fcf 10%, #5a4fcf 29.62%, #aba4f5 59.25%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        @media (max-width: 640px) {
+            .cyberaware { font-size: 24px; }
+        }
+
+        .bg-cyber-dark { background-color: #111125; }
+        .bg-cyber-nav { background-color: #1a1a2e; }
+        .bg-cyber-card { background-color: #2d2d44; }
+        .bg-cyber-mobile-menu { background-color: #1d1d35; }
+        .hover-bg-cyber-mobile-item:hover { background-color: #2a2a40; }
+
+        /* Padding untuk fixed header */
+        .has-fixed-header {
+            padding-top: 72px; /* Nilai default, akan disesuaikan oleh JS */
+        }
+         @media (min-width: 1024px) {
+             .has-fixed-header {
+                padding-top: 76px; /* Nilai default, akan disesuaikan oleh JS */
+             }
+        }
+        
+        /* Scrollbar styles */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1f2937;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #4b5563;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #6b7280;
+        }
+
+        /* Penyesuaian kecil untuk kartu kursus agar lebih seragam */
+        .course-card {
+            background-color: #1f2937; /* bg-gray-800, lebih seragam dengan tema */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .course-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(90, 79, 207, 0.1), 0 4px 6px -2px rgba(90, 79, 207, 0.05);
+        }
+
+    </style>
+</head>
+
+<body class="bg-cyber-dark text-white overflow-x-hidden has-fixed-header">
+
+    <header class="fixed top-0 left-0 right-0 z-50 bg-cyber-nav/95 backdrop-blur-sm">
+        <nav class="container mx-auto px-4 lg:px-6 py-4 flex justify-between items-center">
+            <a href="../index.html" class="cyberaware">CYBERAWARE</a>
+
+            <div class="hidden lg:flex items-center space-x-8">
+                <a href="../index.html" class="text-white hover:text-violet-300 transition-colors">Beranda</a>
+                <a href="../index.html#fitur-kami" class="text-white hover:text-violet-300 transition-colors">Layanan</a>
+                <a href="../index.html#visi-misi" class="text-white hover:text-violet-300 transition-colors">Tentang Kami</a>
+                <a href="../kontak/contactPage.html" class="text-white hover:text-violet-300 transition-colors">Kontak</a>
+                <a href="../course/course.html" class="text-white hover:text-violet-300 transition-colors">Course</a>
+            </div>
+
+            <div class="hidden lg:flex items-center space-x-4">
+                <div class="relative">
+                    <button id="user-menu-button" title="User Profile"
+                        class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:opacity-80 transition-opacity focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-violet-500 overflow-hidden">
+                        <img src="../assets/Male User.svg" alt="User Profile" class="w-full h-full object-cover">
+                    </button>
+                    <div id="user-dropdown"
+                        class="absolute top-full right-0 mt-2 w-48 bg-cyber-card rounded-md shadow-lg overflow-hidden hidden z-50 border border-gray-700/50">
+                        <div class="px-4 py-3 text-center text-xs text-white font-medium truncate">
+                            denji@example.com </div>
+                        <div class="text-xs font-medium">
+                            <a href="../profile/userProfile.html"
+                                class="flex items-center px-4 py-3 text-white hover:bg-gray-700/50 border-t border-gray-700/50 transition-colors">
+                                <img src="../assets/user.svg" alt="Account" class="w-5 h-5 mr-3"> Detail Akun
+                            </a>
+                            <a href="../kontak/contactPage.html"
+                                class="flex items-center px-4 py-3 text-white hover:bg-gray-700/50 border-t border-gray-700/50 transition-colors">
+                                <img src="../assets/help.svg" alt="Help" class="w-5 h-5 mr-3"> Pusat Bantuan
+                            </a>
+                            <a href="#"
+                                class="flex items-center px-4 py-3 text-white hover:bg-gray-700/50 border-t border-gray-700/50 transition-colors logout-button">
+                                <img src="../assets/logout.svg" alt="Logout" class="w-5 h-5 mr-3"> Keluar
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="lg:hidden text-white focus:outline-none" id="menu-toggle">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </nav>
+
+        <div class="hidden lg:hidden bg-cyber-mobile-menu border-t border-gray-800/50 shadow-xl" id="mobile-menu">
+            <div class="container mx-auto">
+                <div class="py-4 px-4 space-y-6">
+                    <div class="grid grid-cols-1 gap-2">
+                        <a href="../index.html" class="text-white py-3 px-4 rounded hover-bg-cyber-mobile-item transition-colors flex items-center">
+                            <i class="fas fa-home mr-3 w-5 text-center"></i><span>Beranda</span>
+                        </a>
+                        <a href="../index.html#fitur-kami" class="text-white py-3 px-4 rounded hover-bg-cyber-mobile-item transition-colors flex items-center">
+                            <i class="fas fa-cogs mr-3 w-5 text-center"></i><span>Layanan</span>
+                        </a>
+                        <a href="../index.html#visi-misi" class="text-white py-3 px-4 rounded hover-bg-cyber-mobile-item transition-colors flex items-center">
+                            <i class="fas fa-info-circle mr-3 w-5 text-center"></i><span>Tentang Kami</span>
+                        </a>
+                        <a href="../kontak/contactPage.html" class="text-white py-3 px-4 rounded hover-bg-cyber-mobile-item transition-colors flex items-center">
+                            <i class="fas fa-envelope mr-3 w-5 text-center"></i><span>Kontak</span>
+                        </a>
+                    </div>
+                    <div id="mobile-auth-links" class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-3 pt-4 border-t border-gray-700">
+                        <a href="../login/loginPage.html" class="px-4 py-3 border border-gray-600 rounded-md text-center hover:bg-white/10 transition-colors flex-1">Login</a>
+                        <a href="../signUp/signUpPage.html" class="px-4 py-3 bg-violet-600 text-white rounded-md text-center font-semibold hover:bg-violet-700 transition-colors flex-1">Sign up</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 lg:px-8 py-16">
+        <h1 class="text-center text-4xl lg:text-5xl font-bold font-poppins text-white mb-16">
+            Our Course
+        </h1>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="course-card rounded-lg overflow-hidden flex flex-col group">
+                <a href="#" class="block"><img class="w-full h-56 object-cover" src="/assets/Cybersecurity Image from Unsplash.jpg" alt="Course Thumbnail"></a>
+                <hr class="border-gray-700">
+                <div class="p-6 flex-grow flex flex-col bg-cyber-card">
+                    <h3 class="text-xl font-semibold text-white mb-2 leading-tight">Mulai Aman Dasar-Dasar Keamanan Siber</h3>
+                    <p class="text-sm text-gray-400">Budi Santoso, M.Kom.</p>
+                    <div class="flex items-center justify-start gap-4 mt-auto pt-4">
+                        <span class="text-lg font-bold text-violet-300">Rp150.000</span>
+                        <span class="text-base text-gray-500 line-through">Rp200.000</span>
+                    </div>
+                </div>
+            </div>
+            <div class="course-card rounded-lg overflow-hidden flex flex-col group">
+                <a href="#" class="block"><img class="w-full h-56 object-cover" src="/assets/Cybersecurity Collage Design.jpg" alt="Course Thumbnail"></a>
+                <hr class="border-gray-700">
+                <div class="p-6 flex-grow flex flex-col bg-cyber-card">
+                    <h3 class="text-xl font-semibold text-white mb-2 leading-tight">Kunci Digital Anda Melindungi Akun dan Privasi</h3>
+                    <p class="text-sm text-gray-400">Fitria Dewi, S.H., LL.M.</p>
+                    <div class="flex items-center justify-start gap-4 mt-auto pt-4">
+                        <span class="text-lg font-bold text-violet-300">Rp200.000</span>
+                        <span class="text-base text-gray-500 line-through">Rp275.000</span>
+                    </div>
+                </div>
+            </div>
+            <div class="course-card rounded-lg overflow-hidden flex flex-col group">
+                <a href="#" class="block"><img class="w-full h-56 object-cover" src="/assets/Cybersecurity Image.jpg" alt="Course Thumbnail"></a>
+                <hr class="border-gray-700">
+                <div class="p-6 flex-grow flex flex-col bg-cyber-card">
+                    <h3 class="text-xl font-semibold text-white mb-2 leading-tight">Saat Diserang Panduan Penanganan Insiden Siber</h3>
+                    <p class="text-sm text-gray-400">Dr. Siti Aminah, S.T., M.Eng.</p>
+                    <div class="flex items-center justify-start gap-4 mt-auto pt-4">
+                        <span class="text-lg font-bold text-violet-300">Rp275.000</span>
+                        <span class="text-base text-gray-500 line-through">Rp350.000</span>
+                    </div>
+                </div>
+            </div>
+            <div class="course-card rounded-lg overflow-hidden flex flex-col group">
+                <a href="#" class="block"><img class="w-full h-56 object-cover" src="/assets/Cybersecurity Image from Unsplash (1).jpg" alt="Course Thumbnail"></a>
+                <hr class="border-gray-700">
+                <div class="p-6 flex-grow flex flex-col bg-cyber-card">
+                    <h3 class="text-xl font-semibold text-white mb-2 leading-tight">Benteng Keluarga Digital Keamanan Siber untuk Semua Umur</h3>
+                    <p class="text-sm text-gray-400">Rizal Kurniawan, CEH.</p>
+                    <div class="flex items-center justify-start gap-4 mt-auto pt-4">
+                        <span class="text-lg font-bold text-violet-300">Rp225.000</span>
+                        <span class="text-base text-gray-500 line-through">Rp300.000</span>
+                    </div>
+                </div>
+            </div>
+            <div class="course-card rounded-lg overflow-hidden flex flex-col group">
+                <a href="#" class="block"><img class="w-full h-56 object-cover" src="/assets/Cybersecurity Image from Unsplash (2).jpg" alt="Course Thumbnail"></a>
+                <hr class="border-gray-700">
+                <div class="p-6 flex-grow flex flex-col bg-cyber-card">
+                    <h3 class="text-xl font-semibold text-white mb-2 leading-tight">Jejak Hukum Digital Memahami Hak dan Kewajiban Siber Anda</h3>
+                    <p class="text-sm text-gray-400">Prof. Yudha Pratama, S.H., M.H.</p>
+                    <div class="flex items-center justify-start gap-4 mt-auto pt-4">
+                        <span class="text-lg font-bold text-violet-300">Rp350.000</span>
+                        <span class="text-base text-gray-500 line-through">Rp450.000</span>
+                    </div>
+                </div>
+            </div>
+             <div class="course-card rounded-lg overflow-hidden flex flex-col group">
+                <a href="#" class="block"><img class="w-full h-56 object-cover" src="/assets/Quality Control Collage.jpg" alt="Course Thumbnail"></a>
+                <hr class="border-gray-700">
+                <div class="p-6 flex-grow flex flex-col bg-cyber-card">
+                    <h3 class="text-xl font-semibold text-white mb-2 leading-tight">Radar Siber Mengikuti Perkembangan Ancaman Terbaru</h3>
+                    <p class="text-sm text-gray-400">Budi Santoso, M.Kom.</p>
+                    <div class="flex items-center justify-start gap-4 mt-auto pt-4">
+                        <span class="text-lg font-bold text-violet-300">Rp175.000</span>
+                        <span class="text-base text-gray-500 line-through">Rp250.000</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <nav class="flex justify-center items-center gap-4 mt-16 text-white font-medium">
+            <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full border border-gray-600 hover:bg-violet-600/50 transition-colors"><i class="fas fa-chevron-left text-sm"></i></a>
+            <a href="#" class="w-10 h-10 flex items-center justify-center rounded-md bg-violet-600 text-white">1</a>
+            <a href="#" class="w-10 h-10 flex items-center justify-center rounded-md hover:bg-violet-600/50 transition-colors">2</a>
+            <a href="#" class="w-10 h-10 flex items-center justify-center rounded-md hover:bg-violet-600/50 transition-colors">3</a>
+            <span class="text-gray-500">...</span>
+            <a href="#" class="w-10 h-10 flex items-center justify-center rounded-md hover:bg-violet-600/50 transition-colors">10</a>
+            <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full border border-gray-600 hover:bg-violet-600/50 transition-colors"><i class="fas fa-chevron-right text-sm"></i></a>
+        </nav>
+    </main>
+
+    <footer class="bg-cyber-card py-12 md:px-16 px-7 rounded mt-16">
+        <div class="container mx-auto">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10 mb-12">
+                <div class="lg:col-span-2 text-left">
+                    <a href="../index.html" class="cyberaware md:text-2xl mb-2 inline-block">CYBERAWARE</a>
+                    <h3 class="text-lg font-semibold text-slate-100 mb-4">Lindungi Dirimu di Dunia Digital</h3>
+                    <p class="text-slate-100 text-sm max-w-md">Dedicated to delivering innovative solutions that empower everyone to thrive safely in an ever-changing digital world.</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold uppercase tracking-widest text-sm mb-4 text-left text-indigo-300">Quick Links</h4>
+                    <ul class="space-y-2 text-slate-400 text-sm text-left">
+                        <li><a href="../index.html" class="hover:text-white transition-colors">Home</a></li>
+                        <li><a href="../index.html#visi-misi" class="hover:text-white transition-colors">About us</a></li>
+                        <li><a href="../index.html#fitur-kami" class="hover:text-white transition-colors">Services</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Statistics</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold uppercase tracking-widest text-sm mb-4 text-left text-indigo-300">Explore</h4>
+                    <ul class="space-y-2 text-slate-400 text-sm text-left">
+                        <li><a href="#" class="hover:text-white transition-colors">Our Story</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Meet the Team</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Careers</a></li>
+                        <li><a href="../kontak/contactPage.html" class="hover:text-white transition-colors">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold uppercase tracking-widest text-sm mb-4 text-left text-indigo-300">Support</h4>
+                    <ul class="space-y-2 text-slate-400 text-sm text-left">
+                        <li><a href="#" class="hover:text-white transition-colors">Help Center</a></li>
+                        <li><a href="../detector/detectorPage.html" class="hover:text-white transition-colors">Report an Issue</a></li>
+                        <li><a href="./docs.html" class="hover:text-white transition-colors">Documentation</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Live Chat</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700/50 pt-8 flex flex-col sm:flex-row justify-between items-start sm:items-center">
+                <p class="text-sm text-slate-400 mb-6 sm:mb-0 text-left">© 2025 CyberAware. Dibuat oleh Mr. Anomali</p>
+                <div class="flex items-center gap-4 justify-start sm:justify-center">
+                    <a href="#" class="bg-[#1a1a2e] hover:bg-indigo-900/40 transition-colors w-8 h-8 rounded-full flex items-center justify-center"><i class="fab fa-facebook-f text-white text-sm"></i></a>
+                    <a href="#" class="bg-[#1a1a2e] hover:bg-indigo-900/40 transition-colors w-8 h-8 rounded-full flex items-center justify-center"><i class="fab fa-twitter text-white text-sm"></i></a>
+                    <a href="#" class="bg-[#1a1a2e] hover:bg-indigo-900/40 transition-colors w-8 h-8 rounded-full flex items-center justify-center"><i class="fab fa-instagram text-white text-sm"></i></a>
+                    <a href="#" class="bg-[#1a1a2e] hover:bg-indigo-900/40 transition-colors w-8 h-8 rounded-full flex items-center justify-center"><i class="fab fa-linkedin-in text-white text-sm"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main-global.js"></script>
+    <script src="../js/course.js"></script>
+</body>
+</html>
